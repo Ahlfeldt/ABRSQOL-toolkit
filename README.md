@@ -38,4 +38,4 @@ Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel (forthcoming): Meas
 
 **Acknowledgements**
 
-We thank [Max von Mylius](https://github.com/maximylius) for impdlmenting the algorithm in Python and Stata.
+We thank [Max von Mylius](https://github.com/maximylius) for implementing the algorithm in Python and Stata.
