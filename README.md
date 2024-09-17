@@ -35,3 +35,7 @@ Name  | Description |
 **Further resources**: 
 
 Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel (forthcoming): Measuring quality of life under spatial frictions.
+
+**Acknowledgements**
+
+We thank [Max von Mylius](https://github.com/maximylius) for impdlmenting the algorithm in Python and Stata.
