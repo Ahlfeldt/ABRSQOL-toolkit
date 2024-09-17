@@ -18,8 +18,7 @@ Name | Description |
 | R | Folder containing an R package along with instructions |
 | Stata | Folder containing a Stata ado file along with instructions |
 
-
-**Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
+**Files**
 
 Name  | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
@@ -31,6 +30,8 @@ Name  | Description |
 | Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
 | XXX| YYY |
+
+**Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
 
 **Further resources**: 
 
