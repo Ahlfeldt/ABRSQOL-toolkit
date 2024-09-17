@@ -30,7 +30,7 @@ Name  | Description |
 
 | Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| ABRS-ToyModel.pdf | PDF documentation containing the toy model on which this toolkit is based |
+| XXX| YYY |
 
 **Further resources**: 
 
