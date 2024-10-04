@@ -14,6 +14,7 @@ When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Ba
 
 Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
+| DATA | Folder containing data set on which ABRSQOL can be tested |
 | MATLAB | Folder containing a MATLAB function along with instructions |
 | Python | Folder containing a Python package along with instructions |
 | R | Folder containing an R package along with instructions |
@@ -21,10 +22,13 @@ Name | Description |
 
 **Files**
 
-Name  | Description |
+Folder | Name  | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| XXX | File description |
-| XXX | File description  |
+| DATA | ABQOS-testdata.csv | Test data set in comma separated format
+| DATA | ABQOS-testdata.dta | Test data set in commaStata format
+| Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax
+| Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. To locate the path, type adopath in Stata. 
+
 
 **Other files**:
 
