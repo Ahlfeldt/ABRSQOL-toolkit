@@ -24,10 +24,10 @@ Name | Description |
 
 Folder | Name  | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| DATA | ABQOS-testdata.csv | Test data set in comma separated format
-| DATA | ABQOS-testdata.dta | Test data set in commaStata format
-| Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax
-| Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. To locate the path, type adopath in Stata. 
+| DATA | ABQOS-testdata.csv | Test data set in comma separated format |
+| DATA | ABQOS-testdata.dta | Test data set in commaStata format |
+| Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax |
+| Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. To locate the path, type adopath in Stata |
 
 
 **Other files**:
