@@ -14,13 +14,13 @@ ABRSQOL is a gradient solver developed by Gabriel M Ahlfeldt, Fabian Bald, Dunca
 ABRSQOL outcome wage floor_space_price tradable_goods_price local_services_price residence_population hometown_population ["parameter=value"]
 
 The following arguments are compulsory
-outcome					QOL variable to be generated, name can be freely chosen
-wage					Wage index, must exist in data set
-floor_space_price		Floor space price index, must exist in data set
-local_services_price	Tradable goods price index, must exist in data set
-residence_population	Local services price index, must exist in data set
-residence_population	Residence population, must exist in data set
-hometown_population		Hometown population, must exist in data set
+outcome                 QOL variable to be generated, name can be freely chosen
+wage                    Wage index, must exist in data set
+floor_space_price       Floor space price index, must exist in data set
+local_services_price    Tradable goods price index, must exist in data set
+residence_population    Local services price index, must exist in data set
+residence_population    Residence population, must exist in data set
+hometown_population     Hometown population, must exist in data set
 
 Notice that if any of these key variables were in the data set, they will be interpreted in the spirit of ABRS: w p_H P_t p_n L L_b
 
@@ -28,23 +28,23 @@ The following parameters can be adjusted by adding "parameter=value"
 as an argument. Below is a brief description and canonical parameter 
 values
 
-alpha 		Income share on non-housing consumtpion		0.7
-beta		Share of tradable goods in non-housing 		0.5
-			consumption  								
-gamma 		Idiosyncratic taste dispersion 				3
-			(inverse labour supplyelasticity)	
-xi 			Valuation of local ties						5
-conv 		Convergence parameter 						0.2
-			Hgher value increases spead of 
-			convergence and risk of bouncing                           
-tolerance   Value used in stopping rule		            1*10^(-10)
-			Sum of absolute deviations between guessed
-			and predicted QoL values
-			Smaller values imply greater precision and
-			longer convergence
-maxiter 	Maximum iteration 	                    	10000
-			Maximum number of iteratios after which 
-			the algorithm is forced to stop
+alpha       Income share on non-housing consumtpion     0.7
+beta        Share of tradable goods in non-housing      0.5
+            consumption  								
+gamma       Idiosyncratic taste dispersion              3
+            (inverse labour supplyelasticity)	
+xi          Valuation of local ties                     5
+conv        Convergence parameter                       0.2
+            Hgher value increases spead of 
+            convergence and risk of bouncing                           
+tolerance   Value used in stopping rule                 1*10^(-10)
+            Sum of absolute deviations between guessed
+            and predicted QoL values
+            Smaller values imply greater precision and
+            longer convergence
+maxiter     Maximum iteration                           10000                     
+            Maximum number of iteratios after which 
+            the algorithm is forced to stop
 
 The program will use these parameter values if you do not add an argument. 
 You can change any of the parameter values by adding "parameter=value" as an argument. 
