@@ -23,7 +23,7 @@ Name | Description |
 **Files**
 
 Folder | Name  | Description |
-|:---------------------------------------------|:-------------------------------------------------------------------------|
+|:-------------------|:--------------------------|:-------------------------------------------------------------------------|
 | DATA | ABQOS-testdata.csv | Test data set in comma separated format |
 | DATA | ABQOS-testdata.dta | Test data set in commaStata format |
 | Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax |
