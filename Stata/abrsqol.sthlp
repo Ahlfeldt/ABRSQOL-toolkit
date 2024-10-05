@@ -40,9 +40,8 @@ xi          Valuation of local ties                     5
 conv        Convergence parameter                       0.5
             Hgher value increases spead of 
             convergence and risk of bouncing                           
-tolerance   Value used in stopping rule                 1*10^(-10)
-            Sum of absolute deviations between guessed
-            and predicted QoL values
+tolerance   Value used in stopping rule                 1*10^(-5)
+            The mean absolute error (MAE)
             Smaller values imply greater precision and
             longer convergence
 maxiter     Maximum iteration                           10000                     
