@@ -21,7 +21,7 @@
 * Assume expenditure on non-housing consumption is greater
 	ABRSQOL MyQoLmeasure3 wage p_H P_t p_n L L_b "alpha=0.8"
 * Same, plus increasing speed of convergence
-	ABRSQOL MyQoLmeasure4 wage p_H P_t p_n L L_b "alpha=0.8" "conv=0.5"
+	ABRSQOL MyQoLmeasure4 wage p_H P_t p_n L L_b "alpha=0.8" "conv=1"
 	
 * Simple comparison to Rosen-Roback amenity
 	gen RRQOL = p_H^(0.3)/wage
