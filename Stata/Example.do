@@ -1,7 +1,19 @@
 * Load the .dta file directly from GitHub
 	use "https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.dta", clear
-* Install the ABRSQOL-toolkit
+
+* Install the ABRSQOL-toolkit (once available on SSC)
 	capture ssc install ABRSQOL
+	
+* In the meantime, copy from GitHub
+	* Download the ado and help files from GitHub
+	copy "https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/Stata/abrsqol.ado" "abrsqol.ado", replace
+	copy "https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/Stata/abrsqol.sthlp" "abrsqol.sthlp", replace
+
+	* Copy the files to your personal ado directory with the replace option
+	copy "abrsqol.ado" "`c(sysdir_personal)'\abrsqol.ado", replace
+	copy "abrsqol.sthlp" "`c(sysdir_personal)'\abrsqol.sthlp", replace
+
+
 	
 * Run the solver under the baseline parameterization
 	ABRSQOL MyQoLmeasure1 w p_H P_t p_n L L_b
