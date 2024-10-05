@@ -27,8 +27,8 @@ Folder | Name  | Description |
 | DATA | ABQOS-testdata.csv | Test data set in comma separated format |
 | DATA | ABQOS-testdata.dta | Test data set in commaStata format |
 | Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax. Just open the do file in Stata after you have installed the ABRSQOL-toolkit and take it from there |
-| Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. To locate the path, type `adopath` in Stata. Alternatively, you can type `ssc install ABRSQOL` in Stata |
-| Stata | abrs.sthlp | Stata help file. It needs to be copied to your personal ado file folder. Once copied, you can call it by typing `help ABRSQOL` in Stata
+| Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. This is done by the Examlple.do file. You can also copy it manually. To locate the path, type `adopath` in Stata. Alternatively, you can type `ssc install ABRSQOL` in Stata |
+| Stata | abrs.sthlp | Stata help file. It needs to be copied to your personal ado file folder. This is done by the Examlple.do file. You can also copy it manually. Once copied, you can call it by typing `help ABRSQOL` in Stata
 
 
 **Other files**:
