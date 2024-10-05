@@ -52,7 +52,7 @@
 	scalar gamma = 3                      // gamma parameter
 	scalar xi = 5                         // xi parameter
 	scalar conv = 0.5			      	  // convergence parameter
-	scalar tolerance = 1*10^(-10)		  // tolerance parameter
+	scalar tolerance = 1*10^(-5)		  // tolerance parameter
 	scalar maxiter	= 10000				  // max iterations	
 	
 * Override parameter values with user entry
@@ -114,10 +114,10 @@
 * Compute predicted psi
 	qui replace mathcal_P_hat = (P_t_hat^(alpha*beta)) * (p_n_hat^(alpha*(1-beta))) * (p_H_hat^(1-alpha))
 	local denominator = 0
-	qui foreach num of numlist 1 / $J {
+	qui forval num = 1/$J { 
 		local denominator = `denominator' + (A_hat[`num']*w_hat[`num']/mathcal_P_hat[`num'])^gamma
 	}
-	foreach num of numlist 1 / $J {
+	qui forval num = 1/$J { 
 		local numerator = (exp(xi)-1)*(A_hat[`num']*w_hat[`num']/mathcal_P_hat[`num'])^gamma
 		scalar psi_`num' = (1+`numerator'/`denominator')^(-1)
 		qui replace Psi = psi_`num' if _n == `num'
@@ -125,7 +125,7 @@
 
 * Compute predicted mathcal L_b
 	qui replace mathcal_L = 0
-	qui foreach num of numlist 1 / $J {
+	qui forval num = 1/$J { 
 		replace mathcal_L = mathcal_L + psi_`num'*L_b[`num'] 
 	}
 	qui replace mathcal_L = mathcal_L + (exp(xi)-1)*Psi*L_b
@@ -136,7 +136,7 @@
 * Evaluate objective	
 	qui gen tempObjective = abs(A_hat_up-A_hat)
 	qui sum tempObjective
-	local Ototal = r(sum)
+	local Ototal = r(sum)/r(N)
 	qui drop tempObjective
 * Update guess
 	qui replace A_hat = conv*A_hat_up + (1-conv)*A_hat
