@@ -1,3 +1,13 @@
+********************************************************************************
+*** Illustrative application of the ABRSQOL-toolkit based on                 ***
+*** Ahlfeldt, Bald, Roth, Seidel:                                            ***
+*** Measuring quality of life under spatial frictions                        ***	
+*** Version 0.9                                                              ***											
+*** (c) Gabriel M Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel          ***
+*** 10/2024                                                                  ***
+********************************************************************************
+
+
 * Load the .dta file directly from GitHub
 	use "https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.dta", clear
 
