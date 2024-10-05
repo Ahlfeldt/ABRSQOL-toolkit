@@ -14,8 +14,8 @@ When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Ba
 
 Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| DATA | Folder containing data set on which ABRSQOL can be tested |
-| MATLAB | Folder containing a MATLAB function along with instructions |
+| DATA | Folder containing data set on which ABRSQOL can be tested. Notice that this is a testing data set. It does not contain the variables used in the paper.  |
+| MATLAB | Folder containing a MATLAB function along with instructions. It does not contain the variables used in the paper.  |
 | Python | Folder containing a Python package along with instructions |
 | R | Folder containing an R package along with instructions |
 | Stata | Folder containing a Stata ado file along with instructions |
