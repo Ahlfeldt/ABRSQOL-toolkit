@@ -110,7 +110,7 @@
 	local Ototal = 100000
 	local count = 1
 	while `Ototal' > $tolerance_total & `count' <= $maxiter {
-	display "...iteration `count', value in objective function: `Ototal'"
+	display "...iteration `count', value of objective function: `Ototal'"
 * Compute predicted psi
 	qui replace mathcal_P_hat = (P_t_hat^(alpha*beta)) * (p_n_hat^(alpha*(1-beta))) * (p_H_hat^(1-alpha))
 	local denominator = 0
