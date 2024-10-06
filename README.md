@@ -1,6 +1,7 @@
-<div style="text-align: center;">
-  This text will also be centered.
-</div>
+<p align="center">
+  This is site is under construction. The content is not ready to use.<br>
+  Please be patient...
+</p>
 
 # This is site is under construction. The content is not ready to use. Please be patient...
 # Toolking for measuring quality of life under spatial frictions
