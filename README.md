@@ -1,8 +1,6 @@
 <p align="center">
-  <span style="font-size:30px;"><strong>This site is under construction. The content is not ready to use.<br>Please be patient...</strong></span>
+  <span style="font-size:60px;"><strong>This site is under construction. The content is not ready to use.<br>Please be patient...</strong></span>
 </p>
-
-# This is site is under construction. The content is not ready to use. Please be patient...
 # Toolking for measuring quality of life under spatial frictions
 (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel
 
