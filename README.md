@@ -1,6 +1,5 @@
 <p align="center">
- # This is site is under construction. The content is not ready to use.<br>
-#  Please be patient...
+  <span style="font-size:30px;"><strong>This site is under construction. The content is not ready to use.<br>Please be patient...</strong></span>
 </p>
 
 # This is site is under construction. The content is not ready to use. Please be patient...
