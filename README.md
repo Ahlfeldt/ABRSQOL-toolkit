@@ -1,6 +1,8 @@
 <div style="text-align: center;">
-  # This is site is under construction. The content is not ready to use. Please be patient...
+  This text will also be centered.
 </div>
+
+# This is site is under construction. The content is not ready to use. Please be patient...
 # Toolking for measuring quality of life under spatial frictions
 (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel
 
