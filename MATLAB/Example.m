@@ -15,27 +15,20 @@ clc
 
 % Set the working directory to the path to which Example.m has been copied
 
-try
-    % Attempt to detect the path of the currently running script (Example.m)
-    scriptPath = fileparts(mfilename('fullpath'));    
+    % Detect the path of the currently running script (Example.m)
+    scriptPath = fileparts(mfilename('fullpath'));
     % Change the working directory to the path of Example.m
-    cd(scriptPath);   
+    cd(scriptPath);
     % Inform the user about the working directory
     disp(['Working directory set to: ', scriptPath]);
-catch
-    % If the automatic detection fails, prompt the user for input
-    disp('Automatic path detection failed.');
-    disp('If you are using macOS, this could be due to file permissions or the way MATLAB was started.');
-    disp('Please ensure that the folder containing Example.m has the correct read/write permissions.');
-    scriptPath = input('Please enter the full path to set as the working directory: ', 's');  
-    % Validate and change to the user-defined path if it exists
-    if isfolder(scriptPath)
-        cd(scriptPath);
-        disp(['Working directory set to: ', scriptPath]);
-    else
-        error('The provided path is not a valid directory. Please check and try again.');
-    end
-end
+    
+    % Note: If the automatic detection does not work, you can manually set the working directory.
+    % To do this, use the following command:
+    % cd('path_to_your_directory');
+    % Replace 'path_to_your_directory' with the path where Example.m is located.
+    % For example:
+    % cd('/Users/yourname/Documents/Example'); % On macOS or Linux
+    % cd('C:\Users\yourname\Documents\Example'); % On Windows
 
 % Copy relevant files to working directory
 
