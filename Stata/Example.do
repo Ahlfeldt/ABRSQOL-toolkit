@@ -39,6 +39,6 @@
 	gen RRQOL_hat = RRQOL / RRQOL[1]
 	twoway 	(scatter MyQoLmeasure1 RRQOL_hat [w=L] , mcolor(black%20) mlcolor(black%0)) 	///
 			(scatter MyQoLmeasure1 RRQOL_hat, mcolor(none) mlabel(Name) mlabsize(1) mlabcol(black))	///
-			,  ytitle("ABRS QoL measure") xtitle("Rosen-Roback QoL measure") legend(off)
+			,  ytitle("ABRS QoL measure") xtitle("Rosen-Roback QoL measure") legend(off) graphregion(color(white))
 			
 * End of do file
