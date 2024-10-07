@@ -15,14 +15,23 @@ clc
 
 % Set the working directory
 cd('D:\Dropbox\GA_FB_DR_TS_MIGRATION\ABRSQOL-toolkit/MATLAB');
-% Define the URL of the raw .mat file on GitHub
-url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.mat';
 
-% Define the destination file name, including the path
-outputFile = 'ABRSQOL-testdata.mat';
+% Copy relevant files to working directory
 
-% Download the file and save it to the specified directory
-websave(outputFile, url);
+    % Test data
+        % Define the URL of the raw .mat file on GitHub
+        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/MATLAB/ABRSQOL.m';
+        % Define the destination file name, including the path
+        outputFile = 'ABRSQOL-testdata.mat';
+        % Download the file and save it to the specified directory
+        websave(outputFile, url);
+    % ABQRSQOL function
+        % Define the URL of the raw .m file on GitHub
+        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.mat';
+        % Define the destination file name, including the path
+        outputFile = 'ABRSQOL-testdata.mat';
+        % Download the file and save it to the specified directory
+        websave(outputFile, url);
 
 % Load the .mat file into the workspace
 load('ABRSQOL-testdata.mat');
