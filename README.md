@@ -1,5 +1,5 @@
+# This site is under construction. The content is not ready to use.<br>Please be patient... 
 # Toolking for measuring quality of life under spatial frictions
-# This is site is under construction. Content is not ready to use. Please be patient
 (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel
 
 Version 0.9, 2024-09
@@ -24,7 +24,7 @@ Name | Description |
 
 Folder | Name  | Description |
 |:-------------------|:-------------------------------------|:-------------------------------------------------------------------------|
-| DATA | ABQOS-testdata.csv | Test data set in comma separated format. Please note that this is a test data set, and it is **not identical** to the data used in the paper. |
+| DATA | ABQOS-testdata.csv | Test data set in comma separated format. Please note that this is a test data set, and it is **not identical** to the data used in the paper. The data set includes average disposable household income as a measure of wage, the local labour market house price index from [Ahlfeldt, Heblich, Seidel (2023)](https://doi.org/10.1016/j.regsciurbeco.2022.103836), the 2015 census population as a measure of residence population and hte 1985 census population as measure of hometown population. Tradable goods price and local services price indices are uniformly set to one. |
 | DATA | ABQOS-testdata.dta | Test data set in commaStata format. Please note that this is a test data set, and it is **not identical** to the data used in the paper. |
 | Stata | Example.do | Illustrative script that reads the test data set and calls the ABRSQOL programme with an exemplary syntax. Just open the do file in Stata after you have installed the ABRSQOL-toolkit and take it from there. |
 | Stata | abrs.ado | Stata ado file. It needs to be copied to your personal ado file folder. This is done by the Examlple.do file. You can also copy it manually. To locate the path, type `adopath` in Stata. Alternatively, you can type `ssc install ABRSQOL` in Stata. |
