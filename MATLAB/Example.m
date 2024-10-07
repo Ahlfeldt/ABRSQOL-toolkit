@@ -20,16 +20,16 @@ cd('D:\Dropbox\GA_FB_DR_TS_MIGRATION\ABRSQOL-toolkit/MATLAB');
 
     % Test data
         % Define the URL of the raw .mat file on GitHub
-        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/MATLAB/ABRSQOL.m';
+        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.mat';
         % Define the destination file name, including the path
         outputFile = 'ABRSQOL-testdata.mat';
         % Download the file and save it to the specified directory
         websave(outputFile, url);
     % ABQRSQOL function
         % Define the URL of the raw .m file on GitHub
-        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.mat';
+        url = 'https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/MATLAB/ABRSQOL.m';
         % Define the destination file name, including the path
-        outputFile = 'ABRSQOL-testdata.mat';
+        outputFile = 'ABRSQOL.m';
         % Download the file and save it to the specified directory
         websave(outputFile, url);
 
@@ -37,6 +37,6 @@ cd('D:\Dropbox\GA_FB_DR_TS_MIGRATION\ABRSQOL-toolkit/MATLAB');
 load('ABRSQOL-testdata.mat');
 
 % Solve for region-specific QoL
-[A, O_total, test_agg] = ABRSQOL(alpha, beta, gamma, xi, w, p_H, P_t, p_n, L, L_bar, L_b);
+[A, O_total, test_agg] = ABRSQOL(alpha, beta, gamma, xi, w, p_H, P_t, p_n, L, L_b);
 
 % Done
