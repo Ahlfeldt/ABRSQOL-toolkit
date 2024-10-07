@@ -12,17 +12,30 @@ clc
 
 % This files load the testing data set and uses the ABRSQOL function
 % See ABRSQOL.m for a detailed description of the syntax
-% This file can be executed directly, the workign directory will be set automatically
 
 % Set the working directory to the path to which Example.m has been copied
 
-    % Detect the path of the currently running script (Example.m)
-    scriptPath = fileparts(mfilename('fullpath'));
+try
+    % Attempt to detect the path of the currently running script (Example.m)
+    scriptPath = fileparts(mfilename('fullpath'));    
     % Change the working directory to the path of Example.m
-    cd(scriptPath);
-    % Now, scriptPath is set as the working directory
+    cd(scriptPath);   
+    % Inform the user about the working directory
     disp(['Working directory set to: ', scriptPath]);
-
+catch
+    % If the automatic detection fails, prompt the user for input
+    disp('Automatic path detection failed.');
+    disp('If you are using macOS, this could be due to file permissions or the way MATLAB was started.');
+    disp('Please ensure that the folder containing Example.m has the correct read/write permissions.');
+    scriptPath = input('Please enter the full path to set as the working directory: ', 's');  
+    % Validate and change to the user-defined path if it exists
+    if isfolder(scriptPath)
+        cd(scriptPath);
+        disp(['Working directory set to: ', scriptPath]);
+    else
+        error('The provided path is not a valid directory. Please check and try again.');
+    end
+end
 
 % Copy relevant files to working directory
 
