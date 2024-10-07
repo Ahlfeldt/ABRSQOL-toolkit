@@ -6,7 +6,7 @@
 %%% 10/2024                                                                  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [A, O_total, test_agg] = ABRSQOL(alpha, beta, gamma, xi, w, p_H, P_t, p_n, L, L_bar, L_b)
+function [A, O_total, test_agg] = ABRSQOL(alpha, beta, gamma, xi, w, p_H, P_t, p_n, L, L_b)
 % Syntax %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % The function returns the following outputs
         % A          The quality of life measure; you can use other names
