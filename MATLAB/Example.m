@@ -12,6 +12,7 @@ clc
 
 % This files load the testing data set and uses the ABRSQOL function
 % See ABRSQOL.m for a detailed description of the syntax
+% This file can be executed directly, the workign directory will be set automatically
 
 % Set the working directory to the path to which Example.m has been copied
 
