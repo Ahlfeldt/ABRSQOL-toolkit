@@ -13,8 +13,15 @@ clc
 % This files load the testing data set and uses the ABRSQOL function
 % See ABRSQOL.m for a detailed description of the syntax
 
-% Set the working directory
-    cd('C:\MATLABTEST');
+% Set the working directory to the path to which Example.m has been copied
+
+    % Detect the path of the currently running script (Example.m)
+    scriptPath = fileparts(mfilename('fullpath'));
+    % Change the working directory to the path of Example.m
+    cd(scriptPath);
+    % Now, scriptPath is set as the working directory
+    disp(['Working directory set to: ', scriptPath]);
+
 
 % Copy relevant files to working directory
 
