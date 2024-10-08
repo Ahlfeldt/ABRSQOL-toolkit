@@ -36,7 +36,7 @@ Folder | Name  | Description |
 
 | Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| XXX| YYY |
+| XXX| Codebook introducing variables and laying out the structure of the solver in pseduo code |
 
 **Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
 
