@@ -15,8 +15,8 @@ Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
 | DATA | Folder containing data a set on which ABRSQOL can be tested.   |
 | MATLAB | Folder containing a MATLAB function along with instructions. It does not contain the variables used in the paper.  |
-| Python | Folder containing a Python package along with instructions. Under construction. |
-| R | Folder containing an R package along with instructions. Under construction.  |
+| Python | Folder containing a Python package along with instructions. *Under construction*. |
+| R | Folder containing an R package along with instructions. *Under construction*.  |
 | Stata | Folder containing a Stata ado file along with instructions. |
 
 **Files**
