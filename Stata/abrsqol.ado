@@ -161,13 +161,13 @@
 			drop P_t
 		}
 		if "`5'" != "p_n" {
-			drop P_t
+			drop P_n
 		}
 		if "`6'" != "L" {
-			drop P_t
+			drop L
 		}
 		if "`7'" != "L_b" {
-			drop P_t
+			drop L_n
 		}
 	display "------------------------------------------------------------------"
 	display "QoL generated" 
