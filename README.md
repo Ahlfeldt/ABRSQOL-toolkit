@@ -5,7 +5,7 @@ Version 0.9, 2024-09
 
 **General instructions:**
 
-This toolkit provides implementations of a numerical solution algorithm to invert unobserved quality of life from observed datain various programming languages. 
+This toolkit provides implementations of a numerical solution algorithm to invert unobserved quality of life from observed data in various programming languages. Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is streightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations). 
 
 When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel (forthcoming): Measuring quality of life under spatial frictions.
 
