@@ -7,7 +7,7 @@ help for {hi:ABRSQOL}
 
 {title:Description}
 
-ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life (QoL) measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS. Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is streightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations). 
+ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life (QoL) measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS. Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations). 
 
 {title:Syntax}
 
