@@ -132,7 +132,7 @@
 	qui replace mathcal_L_hat = mathcal_L/mathcal_L[1]
 	
 * Compute predicted QoL
-	qui replace A_hat_up = mathcal_P / w_hat * (L_hat/mathcal_L_hat)^(1/gamma)
+	qui replace A_hat_up = mathcal_P_hat / w_hat * (L_hat/mathcal_L_hat)^(1/gamma)
 * Evaluate objective	
 	qui gen tempObjective = abs(A_hat_up-A_hat)
 	qui sum tempObjective
