@@ -23,7 +23,7 @@
 	capture copy "abrsqol.sthlp" "`c(sysdir_plus)'abrsqol.sthlp", replace
 	capture copy "abrsqol.ado" "`c(sysdir_personal)'abrsqol.ado", replace
 	capture copy "abrsqol.sthlp" "`c(sysdir_personal)'abrsqol.sthlp", replace
-	
+
 * Run the solver under the baseline parameterization
 	ABRSQOL MyQoLmeasure1 w p_H P_t p_n L L_b
 * The solver also works with different variable names
@@ -39,6 +39,6 @@
 	gen RRQOL_hat = RRQOL / RRQOL[1]
 	twoway 	(scatter MyQoLmeasure1 RRQOL_hat [w=L] , mcolor(black%20) mlcolor(black%0)) 	///
 			(scatter MyQoLmeasure1 RRQOL_hat, mcolor(none) mlabel(Name) mlabsize(1) mlabcol(black))	///
-			,  ytitle("ABRS QoL measure") xtitle("Rosen-Roback QoL measure") legend(off) graphregion(color(white))
+			,  ytitle("ABRS QoL measure") xtitle("Rosen-Roback QoL measure") legend(off)
 			
 * End of do file
