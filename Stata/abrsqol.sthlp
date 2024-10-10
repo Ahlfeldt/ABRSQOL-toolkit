@@ -7,7 +7,7 @@ help for {hi:ABRSQOL}
 
 {title:Description}
 
-ABRSQOL is a gradient solver developed by Gabriel M Ahlfeldt, Fabian Bald, Duncan Roth, and Tobias Seidel is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS.
+ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life (QoL) measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS. Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations). 
 
 {title:Syntax}
 
@@ -21,11 +21,6 @@ local_services_price    Tradable goods price index, must exist in data set
 residence_population    Local services price index, must exist in data set
 residence_population    Residence population, must exist in data set
 hometown_population     Hometown population, must exist in data set
-
-Notice that observations with missing values in these key variables will be dropped.
-
-Notice that if any of the following key variables are in the data set, they will be dropped unless you called them in the syntax: w p_H P_t p_n L L_b.
-So, be advised to only have these variables in the data set if you call them in the ABRSQOL command.
 
 The following parameters can be adjusted by adding "parameter=value" 
 as an argument. Below is a brief description and canonical parameter 
