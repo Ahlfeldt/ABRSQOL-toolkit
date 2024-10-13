@@ -11,16 +11,17 @@ ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quali
 
 {title:Syntax}
 
-ABRSQOL outcome wage floor_space_price tradable_goods_price local_services_price residence_population hometown_population ["parameter=value"]
+ABRSQOL {it:outcome wage floor_space_price tradable_goods_price local_services_price residence_population hometown_population} ["parameter=value"]
 
-The following arguments are compulsory
-outcome                 QOL variable to be generated, name can be freely chosen
-wage                    Wage index, must exist in data set
-floor_space_price       Floor space price index, must exist in data set
-local_services_price    Tradable goods price index, must exist in data set
-residence_population    Local services price index, must exist in data set
-residence_population    Residence population, must exist in data set
-hometown_population     Hometown population, must exist in data set
+The following arguments are compulsory:
+
+outcome                 QOL variable to be generated, name can be freely chosen; must be included in syntax
+wage                    Wage index, can have any name, but must exist in data set; must be included in syntax
+floor_space_price       Floor space price index, can have any name, but must exist in data set; must be included in syntax
+local_services_price    Tradable goods price index, can have any name, but must exist in data set; must be included in syntax
+local_services_price    Local services price index, can have any name, but must exist in data set; must be included in syntax
+residence_population    Residence population, must can have any name, but must exist in data set; must be included in syntax
+hometown_population     Hometown population, can have any name, but must exist in data set; must be included in syntax
 
 The following parameters can be adjusted by adding "parameter=value" 
 as an argument. Below is a brief description and canonical parameter 
@@ -66,7 +67,7 @@ ABRSQOL MyQOLmeasure w p_H P_t p_n L L_b "alpha=0.8" "conv=0.75"
 You can add as many arguments as there are parameters.
 
 {title:Verion}
-0.9, 10/2024
+0.91, 10/2024
 
 {title:Authors}
 
