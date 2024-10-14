@@ -1,6 +1,5 @@
 
 ABRSQOL <- function(
-
   df=NA,# data.frame containing dataset
 
   # specify variable names or column index
@@ -56,8 +55,6 @@ ABRSQOL <- function(
   }
   # else assign theta number of dimensions
   Theta = dim(L_b)[2]
-
-  
 
 
   ## Inversion
@@ -132,9 +129,9 @@ ABRSQOL <- function(
   # cat("\n------------------------------------------------------------------");
   # cat("\n...finalizing...");
 
-  L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
-  test_agg = sum(L_i)-L_bar; # should be zero!!
-  test_i = L_i-L; # should be zero for all i !!#
+  # L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
+  # test_agg = sum(L_i)-L_bar; # should be zero!!
+  # test_i = L_i-L; # should be zero for all i !!#
 
   df[QoL_varname] = A;
 
@@ -146,19 +143,6 @@ ABRSQOL <- function(
 
   return (list(
     'A' = A,
-    'df' = df,
-    # 'P' = P,
-    # 'P_hat' = P_hat,
-    # 'L' = L,
-    # 'L_b' = L_b,
-    # 'L_hat' = L_hat,
-    # 'w_hat' = w_hat,
-    # 'P_t_hat' = P_t_hat,
-    # 'p_H_hat' = p_H_hat,
-    # 'p_n_hat' = p_n_hat,
-    # 'L_i' = L_i,
-    # 'test_agg' = test_agg,
-    # 'test_i' = test_i,
-    # 'count' = count
+    'df' = df
   ))
 }
