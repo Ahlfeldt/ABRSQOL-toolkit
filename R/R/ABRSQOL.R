@@ -51,7 +51,7 @@ ABRSQOL <- function(
   
   if(is.na(df)){
     # load test data
-  cat("Load test data set and run function on it")
+    cat("Load test data set and run function on it")
     data('ABRSQOL_testdata')
     df = ABRSQOL_testdata
   }
