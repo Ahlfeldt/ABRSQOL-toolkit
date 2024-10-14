@@ -145,21 +145,20 @@ ABRSQOL <- function(
 
 
   return (list(
-    'df' = df,
     'A' = A,
-    'P' = P,
-    'P_hat' = P_hat,
-    'L' = L,
-    'L_b' = L_b,
-    'L_hat' = L_hat,
-    'w_hat' = w_hat,
-    'P_t_hat' = P_t_hat,
-    'p_H_hat' = p_H_hat,
-    'p_n_hat' = p_n_hat,
-    'L_i' = L_i,
-    'test_agg' = test_agg,
-    'test_i' = test_i,
-    'count' = count
+    'df' = df,
+    # 'P' = P,
+    # 'P_hat' = P_hat,
+    # 'L' = L,
+    # 'L_b' = L_b,
+    # 'L_hat' = L_hat,
+    # 'w_hat' = w_hat,
+    # 'P_t_hat' = P_t_hat,
+    # 'p_H_hat' = p_H_hat,
+    # 'p_n_hat' = p_n_hat,
+    # 'L_i' = L_i,
+    # 'test_agg' = test_agg,
+    # 'test_i' = test_i,
+    # 'count' = count
   ))
-
 }
