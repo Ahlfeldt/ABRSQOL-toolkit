@@ -42,8 +42,7 @@ ABRSQOL <- function(
     gamma = 3, # Own calculations
     xi = 5.5, # Own calculations
     # CONVERGENCE AND STOPPING PARAMETERS
-    # conv = 0.5 # convergence parameter
-    upfactor = 0.2, # Updating factor in loop
+    conv = 0.5, # convergence parameter
     tolerance = 1*10^(-10), # Tolerance level for loop
     maxiter = 10000
 
@@ -154,7 +153,7 @@ ABRSQOL <- function(
 
     # Update QoL levels for next iteration of loop
 
-    A_hat <- upfactor * A_hat_up + (1-upfactor) * A_hat;
+    A_hat <- conv * A_hat_up + (1-conv) * A_hat;
     A <- A_hat;
 
     # Next iteration

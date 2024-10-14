@@ -6,10 +6,8 @@ ABRSQOL()
 }
 \description{
 ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life (QoL) measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS.
-    Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations).
+Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations).
 
-
-BRSQOL {it:outcome wage floor_space_price tradable_goods_price local_services_price residence_population hometown_population} ["parameter=value"]
 
 The following arguments are compulsory:
 
@@ -46,20 +44,6 @@ The program will use these parameter values if you do not add an argument.
 You can change any of the parameter values by adding "parameter=value" as an argument.
 You can add as many arguments as there are parameters.
 
-
-
-
-{title:Example 2}:
-Increases income share on non-housing consumption to 0.8
-
-ABRSQOL MyQOLmeasure w p_H P_t p_n L L_b "alpha=0.8"
-
-{title:Example 3:}
-Increases income share on non-housing consumption to 0.8 and increases convergence parameter to 0.75
-
-ABRSQOL MyQOLmeasure w p_H P_t p_n L L_b "alpha=0.8" "conv=0.75"
-
-You can add as many arguments as there are parameters.
 
 }
 \examples{
