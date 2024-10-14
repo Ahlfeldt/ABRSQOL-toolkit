@@ -51,13 +51,12 @@ ABRSQOL <- function(
   
   if(is.na(df)){
     # load test data
-    cat("Load test data set and run function on it")
-    data('ABRSQOL_testdata')
-    df = ABRSQOL_testdata
+    cat("Load test data set and run function on it.")
+    df = get("ABRSQOL_testdata")
   }
 
   if(QoL_varname %in% names(df)){
-    cat("QoL variable '",QoL_varname,"' already exists and will be overwritten.")
+    cat("\nQoL variable '",QoL_varname,"' already exists and will be overwritten.")
   }
 
   ## Note: Loading in all variables needed for inversion //
@@ -76,14 +75,14 @@ ABRSQOL <- function(
 
   # if there are different number of rows = unit of observation per variable throw an error
   if(length( unique(c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n)))) != 1){
-    stop("Variables do not have the same length:","\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),"\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
+    stop("\nVariables do not have the same length:","\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),"\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
   }
   # else save units of observation
   J = length(L_b)
 
   # if there are unequal number of dimensions throw an error
   if(length(unique(c(dim(L_b)[2],dim(L)[2],dim(w)[2]))) != 1){
-    stop("Variables do not have the same dimension:","\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
+    stop("\nVariables do not have the same dimension:","\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
   }
   # else assign theta number of dimensions
   Theta = dim(L_b)[2]
