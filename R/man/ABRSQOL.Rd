@@ -1,7 +1,8 @@
 \name{ABRSQOL}
 \alias{ABRSQOL}
-\title{Hello, World!}
+\title{ABRSQOL-toolkit that provides numerical solvers for quality-of-life measures}
 \usage{
+# see examples and description
 ABRSQOL()
 }
 \description{
@@ -11,13 +12,13 @@ Notice that quality of life is identified up to a constant. Therefore, the inver
 
 The following arguments are compulsory:
 
-outcome                 QOL variable to be generated, name can be freely chosen; must be included in syntax
-wage                    Wage index, can have any name, but must exist in data set; must be included in syntax
-floor_space_price       Floor space price index, can have any name, but must exist in data set; must be included in syntax
-local_services_price    Tradable goods price index, can have any name, but must exist in data set; must be included in syntax
-local_services_price    Local services price index, can have any name, but must exist in data set; must be included in syntax
-residence_population    Residence population, must can have any name, but must exist in data set; must be included in syntax
-hometown_population     Hometown population, can have any name, but must exist in data set; must be included in syntax
+QoL_varname   outcome                 QOL variable to be generated, name can be freely chosen;
+w             wage                    Wage index, can have any name, but must exist in data set;
+p_H           floor_space_price       Floor space price index, can have any name, but must exist in data set;
+P_t           tradable_goods_price    Tradable goods price index, can have any name, but must exist in data set;
+p_n           local_services_price    Local services price index, can have any name, but must exist in data set;
+L             residence_population    Residence population, must can have any name, but must exist in data set;
+L_b           hometown_population     Hometown population, can have any name, but must exist in data set;
 
 The following parameters can be adjusted by adding "parameter=value"
 as an argument. Below is a brief description and canonical parameter
@@ -32,7 +33,7 @@ xi          Valuation of local ties                     5
 conv        Convergence parameter                       0.5
             Hgher value increases spead of
             convergence and risk of bouncing
-tolerance   Value used in stopping rule                 1*10^(-5)
+tolerance   Value used in stopping rule                 1e-10
             The mean absolute error (MAE)
             Smaller values imply greater precision and
             longer convergence
@@ -55,10 +56,8 @@ ABRSQOL()
 ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
-
   # specify the name for the output variable
   QoL_varname='qol_indicator',
-
   # and specify the corresponding variable name for your dataset
   w = 'wage',
   p_H = 'floor_space_price',
@@ -66,12 +65,13 @@ ABRSQOL(
   p_n = 'local_services_price',
   L = 'residence_pop',
   L_b = 'L_b',
+  # freely adjust remaining parameters
   alpha = 0.7,
   beta = 0.5,
   gamma = 3,
   xi = 5.5,
-  upfactor = 0.5,
-  tolerance = 0.000000000001,
+  upfactor = 0.3,
+  tolerance = 1e-11,
   maxiter = 50000
 )
 

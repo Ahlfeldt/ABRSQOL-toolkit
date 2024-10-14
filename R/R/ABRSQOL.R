@@ -1,57 +1,32 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   https://r-pkgs.org
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
-
-# ABRSQOL_testdata = read.csv('./data/ABRSQOL_testdata.csv')
 
 ABRSQOL <- function(
 
-    # "parameter = value"
-    # where parameter is the parameter you want to manipulate
-    # value is the the value you want the parameter to take
-    # You can do this with the following parameters
+  df=NA,# data.frame containing dataset
 
-    df=NA,# data.frame containing dataset
+  # specify variable names or column index
+  QoL_varname='A',# 1: QOL variable to be generated, this variable new must be new # or should it just overwrite by default
 
-    # specify variable names or column index
-    QoL_varname='A',# 1: QOL variable to be generated, this variable new must be new # or should it just overwrite by default
+  w = 'w', # 2: Wage index
+  p_H = 'p_H', # 3: Floor space price index
+  P_t = 'P_t', # 4: Tradable goods price index
+  p_n = 'p_n', # 5: Local services price index
+  L = 'L', # 6: Residence population
+  L_b = 'L_b', # 7: Hometown population
 
-    w = 'w', # 2: Wage index
-    p_H = 'p_H', # 3: Floor space price index
-    P_t = 'P_t', # 4: Tradable goods price index
-    p_n = 'p_n', # 5: Local services price index
-    L = 'L', # 6: Residence population
-    L_b = 'L_b', # 7: Hometown population
+  # DEFINE PARAMETER VALUES
+  alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing (Source: Statistisches Bundesamt, 2020)
+  beta = 0.5, # share of alpha that is spent on tradable good
+  gamma = 3, # Own calculations
+  xi = 5.5, # Own calculations
+  # CONVERGENCE AND STOPPING PARAMETERS
+  conv = 0.5, # convergence parameter
+  tolerance = 1e-10, # Tolerance level for loop
+  maxiter = 10000
 
-
-    # DEFINE PARAMETER VALUES
-    alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing (Source: Statistisches Bundesamt, 2020)
-    beta = 0.5, # share of alpha that is spent on tradable good
-    gamma = 3, # Own calculations
-    xi = 5.5, # Own calculations
-    # CONVERGENCE AND STOPPING PARAMETERS
-    conv = 0.5, # convergence parameter
-    tolerance = 1*10^(-10), # Tolerance level for loop
-    maxiter = 10000
-
-
-    ) {
+  ) {
   
   if(is.na(df)){
-    # load test data
-    cat("Load test data set and run function on it.")
+    cat("Load test data set and apply QoL inversion.")
     df = get("ABRSQOL_testdata")
   }
 
@@ -59,18 +34,13 @@ ABRSQOL <- function(
     cat("\nQoL variable '",QoL_varname,"' already exists and will be overwritten.")
   }
 
-  ## Note: Loading in all variables needed for inversion //
-  # Data originates from IEB datatset
-  # Note: should include the original dataset // Load your own dataset there
   # Generate key variables
-
   L_b = matrix(data = as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
   L = matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
   w = matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
   P_t = df[[P_t]]
   p_H = df[[p_H]]
   p_n = df[[p_n]]
-
 
 
   # if there are different number of rows = unit of observation per variable throw an error
@@ -87,19 +57,16 @@ ABRSQOL <- function(
   # else assign theta number of dimensions
   Theta = dim(L_b)[2]
 
+  
 
+
+  ## Inversion
+  
   # Adjust L_b to have same sum as L
   L_bar = sum(L) # total number of workers in dataset
   L_b_adjust <- L_bar / apply(L_b, 2, function(x) sum(x));
   L_b <- t(t(L_b) * L_b_adjust);
-
-
-
-
-  ## Inversion
-
-  # Relative Quality of life (A_hat)
-
+  
   # Express all variables in relative differences
   # Calculate relative employment, L_hat
   L_hat <- sweep(L, 2, L[1,], `/`)
@@ -110,25 +77,21 @@ ABRSQOL <- function(
   p_H_hat <- p_H / p_H[1];
   p_n_hat <- p_n / p_n[1];
 
-
   # Calculate aggregate price level
-
   P_hat <- (P_t_hat ^(alpha *beta)) * (p_n_hat ^(alpha *(1-beta)))  * (p_H_hat ^(1-alpha));
-
   P <- (P_t ^(alpha *beta))  * (p_n ^(alpha *(1-beta)))  * (p_H ^(1-alpha));
 
-  # list to store output
-  O_vector_total <- list();
-  O_total = max(100000, 10*tolerance) # Starting value for loop
-
+  # Relative Quality of life (A_hat)
   # Guess values relative QoL
   A_hat <- matrix(1, J, Theta); # First guess: all locations have the same QoL
   A <- A_hat;
 
-  # Begin loop to solve for QoL
+  # list to store output
+  O_vector_total <- list();
+  O_total = max(100000, 2*tolerance) # Starting value for loop  
   count <- 1; # Counts the number of iterations
-  cat("\n------------------------------------------------------------------\n")
 
+  cat("\nBegin loop to solve for QoL...\n")
   while (O_total > tolerance && count <= maxiter){
     cat("\r...itertion",count,", value of objective function:",O_total)
     # (1) Calculate model-consistent aggregation shares, Psi_b
@@ -166,8 +129,8 @@ ABRSQOL <- function(
     count <- count+1;
 
   }
-  cat("\n------------------------------------------------------------------");
-  cat("\n...finalizing...");
+  # cat("\n------------------------------------------------------------------");
+  # cat("\n...finalizing...");
 
   L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
   test_agg = sum(L_i)-L_bar; # should be zero!!
