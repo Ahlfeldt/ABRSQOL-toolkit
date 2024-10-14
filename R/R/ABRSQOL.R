@@ -195,7 +195,3 @@ ABRSQOL <- function(
   ))
 
 }
-
-res = ABRSQOL()
-
-
