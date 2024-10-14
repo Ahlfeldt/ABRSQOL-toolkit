@@ -47,10 +47,7 @@ You can change any of the parameter values by adding "parameter=value" as an arg
 You can add as many arguments as there are parameters.
 
 
-{title:Example 1:}
-Baseline parameterization
 
-ABRSQOL MyQOLmeasure w p_H P_t p_n L L_b
 
 {title:Example 2}:
 Increases income share on non-housing consumption to 0.8
@@ -67,9 +64,10 @@ You can add as many arguments as there are parameters.
 }
 \examples{
 
-# run with ABRSQOL_testdata
+# Example 1: run with ABRSQOL_testdata
 ABRSQOL()
 
+# Example 2: run with own data and specified varnames
 ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
@@ -89,11 +87,12 @@ ABRSQOL(
   gamma = 3,
   xi = 5.5,
   upfactor = 0.5,
-  tolerance = 0.000000000001),
+  tolerance = 0.000000000001,
   maxiter = 50000
-}
+)
 
-# you can also reference the variables in your dataset by using the column index
+
+# Example 3: Reference variables in your dataset by using the column index
 ABRSQOL(
   df=my_dataframe,
   QoL_varname='A',
@@ -102,15 +101,17 @@ ABRSQOL(
   P_t = 4,
   p_n = 2,
   L = 6,
-  L_b = 5,
-}
+  L_b = 5
+)
 
-# or in case the variables in your data are named similor to the testdata, you can ommit variable names and use default
+
+# Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
 ABRSQOL(
   df=my_dataframe,
   alpha = 0.7,
   beta = 0.5,
   gamma = 3,
   xi = 5.5,
-  upfactor = 0.5,
+  upfactor = 0.5
+)
 }
