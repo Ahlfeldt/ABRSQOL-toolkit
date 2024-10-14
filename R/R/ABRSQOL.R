@@ -23,7 +23,7 @@ ABRSQOL <- function(
     # value is the the value you want the parameter to take
     # You can do this with the following parameters
 
-    df=read.csv('./data/ABRSQOL_testdata.csv'),# data.frame containing dataset
+    df=NA,# data.frame containing dataset
 
     # specify variable names or column index
     QoL_varname='A',# 1: QOL variable to be generated, this variable new must be new # or should it just overwrite by default
@@ -48,9 +48,16 @@ ABRSQOL <- function(
 
 
     ) {
+  
+  if(is.na(df)){
+    # load test data
+  cat("Load test data set and run function on it")
+    data('ABRSQOL_testdata')
+    df = ABRSQOL_testdata
+  }
 
   if(QoL_varname %in% names(df)){
-    cat("QoL variable '",QoL_varname,"' already exists.")
+    cat("QoL variable '",QoL_varname,"' already exists and will be overwritten.")
   }
 
   ## Note: Loading in all variables needed for inversion //
