@@ -3,7 +3,12 @@
 \title{ABRSQOL-toolkit that provides numerical solvers for quality-of-life measures}
 \usage{
 # see examples and description
-ABRSQOL()
+ABRSQOL(
+  df=my_dataframe,
+  QoL_varname='A',
+  w = 'w', p_H = 'p_H', P_t = 'P_t', p_n = 'p_n', L = 'L', L_b = 'L_b',
+  alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
+  conv = 0.5, tolerance = 1e-10, maxiter = 1e4)
 }
 \description{
 ABRSQOL is part of the ABRSQOL-toolkit that provides numerical solvers for quality-of-life (QoL) measures that are consistent with the mode developed in Ahlfeldt, Bald, Roth, Seidel: Measuring quality of life under spatial frictions, henceforth ABRS.
@@ -70,7 +75,7 @@ ABRSQOL(
   beta = 0.5,
   gamma = 3,
   xi = 5.5,
-  upfactor = 0.3,
+  conv = 0.3,
   tolerance = 1e-11,
   maxiter = 50000
 )
@@ -96,6 +101,6 @@ ABRSQOL(
   beta = 0.5,
   gamma = 3,
   xi = 5.5,
-  upfactor = 0.5
+  conv = 0.5
 )
 }
