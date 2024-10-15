@@ -5,7 +5,6 @@
 # see examples and description
 ABRSQOL(
   df=my_dataframe,
-  QoL_varname='A',
   w = 'w', p_H = 'p_H', P_t = 'P_t', p_n = 'p_n', L = 'L', L_b = 'L_b',
   alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
   conv = 0.5, tolerance = 1e-10, maxiter = 1e4
@@ -65,8 +64,6 @@ my_dataframe = a = read.csv("path/to/your/csv_filename.csv")
 my_dataframe$quality_of_life = ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
-  # specify the name for the output variable
-  QoL_varname='qol_indicator',
   # and specify the corresponding variable name for your dataset
   w = 'wage',
   p_H = 'floor_space_price',
@@ -88,7 +85,6 @@ write.csv(my_dataframe, 'qol_of_my_data.csv')
 # Example 3: Reference variables in your dataset by using the column index
 ABRSQOL(
   df=my_dataframe,
-  QoL_varname='A',
   w = 1,
   p_H = 3,
   P_t = 4,

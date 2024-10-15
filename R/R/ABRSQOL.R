@@ -5,19 +5,18 @@
 #' It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations).
 #'
 #' @param df data.frame or matrix
-#' @param QoL_varname str
 #' @param w str
 #' @param p_H str
 #' @param P_t str
 #' @param p_n str
 #' @param L str
 #' @param L_b str
-#' @param alpha float
-#' @param beta float
-#' @param gamma float
-#' @param xi float
-#' @param conv float
-#' @param tolerance float
+#' @param alpha double
+#' @param beta double
+#' @param gamma double
+#' @param xi double
+#' @param conv double
+#' @param tolerance double
 #' @param maxiter int
 #'
 #' @return Numeric vector of QoL measure (identified up to a constant)
@@ -30,11 +29,14 @@
 #'  alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
 #'  conv = 0.5, tolerance = 1e-10, maxiter = 1e4
 #' )
-#' # Example 1: run with ABRSQOL_testdata
-#' ABRSQOL()
+#' # Example 1: load testdata, run QoL inversion with default parameters, store result as 'QoL' variable, view result 
+#' testdata = get("ABRSQOL_testdata")
+#' testdata$QoL = ABRSQOL(df=testdata)
+#' View(testdata)
 #' 
-# Example 2: run with own data and specified varnames
-#' ABRSQOL(
+#' # Example 2: load your data from csv, run inversion, save result as csv
+#' my_dataframe = a = read.csv("path/to/your/csv_filename.csv")
+#' my_dataframe$quality_of_life = ABRSQOL(
 #'   # supply your dataset as a dataframe
 #'   df=my_dataframe,
 #'   # specify the name for the output variable
@@ -55,11 +57,11 @@
 #'   tolerance = 1e-11,
 #'   maxiter = 50000
 #' )
+#' write.csv(my_dataframe, 'qol_of_my_data.csv'
 #' 
 #' # Example 3: Reference variables in your dataset by using the column index
 #' ABRSQOL(
 #'   df=my_dataframe,
-#'   QoL_varname='A',
 #'   w = 1,
 #'   p_H = 3,
 #'   P_t = 4,
