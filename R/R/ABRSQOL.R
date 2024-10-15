@@ -56,7 +56,6 @@
 #'   maxiter = 50000
 #' )
 #' 
-#' 
 #' # Example 3: Reference variables in your dataset by using the column index
 #' ABRSQOL(
 #'   df=my_dataframe,
@@ -68,7 +67,6 @@
 #'   L = 6,
 #'   L_b = 5
 #' )
-#' 
 #' 
 #' # Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
 #' ABRSQOL(
@@ -83,13 +81,15 @@
 #' @export
 ABRSQOL <- function(
   df, # data.frame or matrix containing dataset
-  # specify variable names or column index
+  
+  # SPECIFY VARIABLES NAMES OR COLUMN INDEX
   w = 'w', # 2: Wage index
   p_H = 'p_H', # 3: Floor space price index
   P_t = 'P_t', # 4: Tradable goods price index
   p_n = 'p_n', # 5: Local services price index
   L = 'L', # 6: Residence population
   L_b = 'L_b', # 7: Hometown population
+  
   # DEFINE PARAMETER VALUES
   alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing (Source: Statistisches Bundesamt, 2020)
   beta = 0.5, # share of alpha that is spent on tradable good
@@ -159,43 +159,34 @@ ABRSQOL <- function(
   # Guess values relative QoL
   A_hat <- matrix(1, J, Theta); # First guess: all locations have the same QoL
   A <- A_hat;
-
-  # list to store output
-  O_vector_total <- list();
+  
+  O_vector_total <- list(); # list to track convergence
   O_total = max(100000, 2*tolerance) # Starting value for loop  
   count <- 1; # Counts the number of iterations
 
   cat("\nBegin loop to solve for QoL...\n")
   while (O_total > tolerance && count <= maxiter){
     cat("\r...itertion",count,", value of objective function:",O_total)
+    
     # (1) Calculate model-consistent aggregation shares, Psi_b
-
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma);
-
     lambda_nb <- sweep(nom, 2, apply(nom, 2, function(x) sum(x)), `/` );
-
     Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1);
 
     # (2) Calculate mathcal_L
-
     mathcal_L <- apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1);
 
     # (3) Calculate relative mathcal_L
-
     mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`);
 
     # (4) Calculate relative QoL, A_hat, according to equation (17)
-
     A_hat_up <- as.vector(P_hat) * (1/ w_hat) * (L_hat / mathcal_L_hat) ^(1 /gamma);
 
     # (5) Calculate deviations from inital guesses for QoL levels
-
     O_total <- sum(abs(A_hat_up-A_hat))/J;
-
     O_vector_total[count] <- O_total;
 
     # Update QoL levels for next iteration of loop
-
     A_hat <- conv * A_hat_up + (1-conv) * A_hat;
     A <- A_hat;
 
@@ -203,13 +194,15 @@ ABRSQOL <- function(
     count <- count+1;
 
   }
-  # cat("\n------------------------------------------------------------------");
-  # cat("\n...finalizing...");
-
-  # L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
-  # test_agg = sum(L_i)-L_bar; # should be zero!!
-  # test_i = L_i-L; # should be zero for all i !!#
-
+  cat("\n------------------------------------------------------------------");
+  cat("\nFinalizing:");
+  L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
+  test_agg = sum(L_i)-L_bar; # should be zero!!
+  test_i = L_i-L; # should be zero for all i !!#
+  cat("\nOverall deviation:");
+  cat(str(test_agg))
+  cat("\nVector of deviations:");
+  cat(str(test_i,vec.len=20))
   cat("\n------------------------------------------------------------------\n");
   cat("\n...QoL variable generated:\n")
   cat(str(A,vec.len=20))
