@@ -4,20 +4,20 @@
 #' Notice that quality of life is identified up to a constant. Therefore, the inverted QoL measures measure has a relative interpretation only. We normalize the QoL relative to the first observation in the data set. 
 #' It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations).
 #'
-#' @param df data.frame or matrix
-#' @param w str
-#' @param p_H str
-#' @param P_t str
-#' @param p_n str
-#' @param L str
-#' @param L_b str
-#' @param alpha double
-#' @param beta double
-#' @param gamma double
-#' @param xi double
-#' @param conv double
-#' @param tolerance double
-#' @param maxiter int
+#' @param df input data: data.frame or matrix
+#' @param w wage index: character or integer (or list), default='w'
+#' @param p_H floor_space_price: character or integer, default='p_H'
+#' @param P_t tradable_goods_price: character or integer, default='P_t'
+#' @param p_n local_services_price: character or integer, default='p_n'
+#' @param L residence_population: character or integer, default='L'
+#' @param L_b hometown_population: character or integer, default='L_b'
+#' @param alpha Income share on non-housing consumtpion: double, default=0.7 
+#' @param beta Share of tradable goods in non-housing consumption: double, default=0.5
+#' @param gamma Idiosyncratic taste dispersion (inverse labour supplyelasticity): double, default=3
+#' @param xi Valuation of local ties: double, default=5
+#' @param conv Convergence parameter (Hgher value increases spead of, convergence and risk of bouncing): double, default=0.5
+#' @param tolerance Value used in stopping rule (The mean absolute error (MAE). Smaller values imply greater precision and longer convergence): double, default=1e-10
+#' @param maxiter Maximum number of iterations after which the algorithm is forced to stop: integer, default=10
 #'
 #' @return Numeric vector of QoL measure (identified up to a constant)
 #'
@@ -102,17 +102,8 @@ ABRSQOL <- function(
   tolerance = 1e-10, # Tolerance level for loop
   maxiter = 10000
   ) {
-  
-  if(is.na(df)){
-    cat("Load test data set and apply QoL inversion.")
-    df = get("ABRSQOL_testdata")
-  }
 
-  if(QoL_varname %in% names(df)){
-    cat("\nQoL variable '",QoL_varname,"' already exists and will be overwritten.")
-  }
-
-  # Generate key variables
+  # Extract key variables from input dataframe/matrix
   L_b = matrix(data = as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
   L = matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
   w = matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
@@ -121,18 +112,18 @@ ABRSQOL <- function(
   p_n = df[[p_n]]
 
 
-  # if there are different number of rows = unit of observation per variable throw an error
+  # if there are unequal number of rows = units of observation per variable throw an error
   if(length( unique(c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n)))) != 1){
     stop("\nVariables do not have the same length:","\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),"\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
   }
-  # else save units of observation
+  # else save units of observation as J
   J = length(L_b)
 
   # if there are unequal number of dimensions throw an error
   if(length(unique(c(dim(L_b)[2],dim(L)[2],dim(w)[2]))) != 1){
     stop("\nVariables do not have the same dimension:","\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
   }
-  # else assign theta number of dimensions
+  # else assign theta as the number of dimensions (mostly will be 1)
   Theta = dim(L_b)[2]
 
 
