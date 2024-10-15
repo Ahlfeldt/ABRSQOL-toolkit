@@ -18,7 +18,7 @@ The following arguments are compulsory:
 outcome                 QOL variable to be generated, name can be freely chosen; must be included in syntax
 wage                    Wage index, can have any name, but must exist in data set; must be included in syntax
 floor_space_price       Floor space price index, can have any name, but must exist in data set; must be included in syntax
-local_services_price    Tradable goods price index, can have any name, but must exist in data set; must be included in syntax
+tradable_goods_price    Tradable goods price index, can have any name, but must exist in data set; must be included in syntax
 local_services_price    Local services price index, can have any name, but must exist in data set; must be included in syntax
 residence_population    Residence population, must can have any name, but must exist in data set; must be included in syntax
 hometown_population     Hometown population, can have any name, but must exist in data set; must be included in syntax
