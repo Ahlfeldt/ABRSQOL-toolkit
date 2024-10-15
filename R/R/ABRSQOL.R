@@ -56,7 +56,7 @@ ABRSQOL <- function(
   # else assign theta number of dimensions
   Theta = dim(L_b)[2]
 
-
+  
   ## Inversion
   
   # Adjust L_b to have same sum as L
