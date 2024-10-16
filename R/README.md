@@ -29,9 +29,7 @@ my_dataframe = read.csv("path/to/your/csv_filename.csv")
 my_dataframe$quality_of_life = ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
-  # specify the name for the output variable
-  QoL_varname='qol_indicator',
-  # and specify the corresponding variable name for your dataset
+  # specify the corresponding variable name for your dataset
   w = 'wage',
   p_H = 'floor_space_price',
   P_t = 'tradable_goods_price',
@@ -53,7 +51,7 @@ write.csv(my_dataframe, 'C:/FOLDER/qol_of_my_data.csv')
 
 ### Example 3: Reference variables in your dataset by using the column index
 ``` r
-ABRSQOL(
+my_dataframe$QoL = ABRSQOL(
   df=my_dataframe,
   w = 1,
   p_H = 3,
@@ -66,7 +64,7 @@ ABRSQOL(
 
 ### Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
 ``` r
-ABRSQOL(
+my_dataframe$QoL = ABRSQOL(
   df=my_dataframe,
   alpha = 0.7,
   beta = 0.5,
