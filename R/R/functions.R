@@ -199,10 +199,10 @@ ABRSQOL <- function(
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma);
     lambda_nb <- sweep(nom, 2, apply(nom, 2, function(x) sum(x)), `/` );
     Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1);
-    print(Psi_b)
+    
     # (2) Calculate mathcal_L
     mathcal_L <- apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1);
-    print(mathcal_L)
+    
     # (3) Calculate relative mathcal_L
     mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`);
 
