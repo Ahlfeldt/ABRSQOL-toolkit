@@ -5,12 +5,12 @@
 #' It is straightforward to rescale the QoL measure to any other location or any other value (such as the mean or median in the distribution of QoL across locations).
 #'
 #' @param df input data: data.frame or matrix
-#' @param w wage index: character or integer (or list), default='w'
-#' @param p_H floor_space_price: character or integer, default='p_H'
-#' @param P_t tradable_goods_price: character or integer, default='P_t'
-#' @param p_n local_services_price: character or integer, default='p_n'
-#' @param L residence_population: character or integer, default='L'
-#' @param L_b hometown_population: character or integer, default='L_b'
+#' @param w wage index variable name or column index: character or integer (or list), default='w'
+#' @param p_H floor_space_price variable name or column index: character or integer, default='p_H'
+#' @param P_t tradable_goods_price variable name or column index: character or integer, default='P_t'
+#' @param p_n local_services_price variable name or column index: character or integer, default='p_n'
+#' @param L residence_population variable name or column index: character or integer, default='L'
+#' @param L_b hometown_population variable name or column index: character or integer, default='L_b'
 #' @param alpha Income share on non-housing consumtpion: double, default=0.7 
 #' @param beta Share of tradable goods in non-housing consumption: double, default=0.5
 #' @param gamma Idiosyncratic taste dispersion (inverse labour supplyelasticity): double, default=3
