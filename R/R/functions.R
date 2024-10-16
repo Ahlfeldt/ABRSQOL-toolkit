@@ -38,7 +38,7 @@
 #' double, default=0.7
 #' @param beta Share of tradable goods in non-housing consumption:
 #' double, default=0.5
-#' @param gamma Idiosyncratic taste dispersion (inverse labour 
+#' @param gamma Idiosyncratic taste dispersion (inverse labour
 #' supply elasticity):
 #' double, default=3
 #' @param xi Valuation of local ties: double, default=5
@@ -50,7 +50,8 @@
 #' @param maxiter Maximum number of iterations after which the algorithm
 #' is forced to stop: integer, default=10
 #'
-#' @return Numeric vector of QoL measure (identified up to a constant)
+#' @return Numeric vector of quality of life measure
+#' (identified up to a constant)
 #'
 #' @examples
 #' ABRSQOL(
@@ -60,7 +61,7 @@
 #'  alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
 #'  conv = 0.5, tolerance = 1e-10, maxiter = 1e4
 #' )
-#' # Example 1: load testdata, run QoL inversion with default parameters, store result as 'QoL' variable, view result 
+#' # Example 1: load testdata, run QoL inversion with default parameters, append and view result 
 #' testdata = get("ABRSQOL_testdata")
 #' testdata$QoL = ABRSQOL(df=testdata)
 #' View(testdata)
@@ -143,16 +144,21 @@ ABRSQOL <- function(
   p_n = df[[p_n]]
   
 
-  # if there are unequal number of rows = units of observation per variable throw an error
-  if(length( unique(c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n)))) != 1){
-    stop("\nVariables do not have the same length:","\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),"\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
+  # if there are unequal number of rows (n_obs) among variables throw error
+  if(length(unique(
+    c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n))
+    )) != 1){
+    stop("\nVariables do not have the same length:",
+    "\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),
+    "\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
   }
   # else save units of observation as J
   J = length(L_b)
 
   # if there are unequal number of dimensions throw an error
   if(length(unique(c(dim(L_b)[2],dim(L)[2],dim(w)[2]))) != 1){
-    stop("\nVariables do not have the same dimension:","\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
+    stop("\nVariables do not have the same dimension:",
+    "\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
   }
   # else assign theta as the number of dimensions (mostly will be 1)
   Theta = dim(L_b)[2]
