@@ -50,7 +50,7 @@ my_dataframe$quality_of_life = ABRSQOL(
 write.csv(my_dataframe, 'qol_of_my_data.csv')
 ```
 
-#### Example 3: Reference variables in your dataset by using the column index
+### Example 3: Reference variables in your dataset by using the column index
 ``` r
 ABRSQOL(
   df=my_dataframe,
