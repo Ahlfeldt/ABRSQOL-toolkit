@@ -25,7 +25,7 @@ View(testdata)
 
 ### Example 2: load your data from csv, run inversion, save result as csv
 ``` r
-my_dataframe = a = read.csv("path/to/your/csv_filename.csv")
+my_dataframe = read.csv("path/to/your/csv_filename.csv")
 my_dataframe$quality_of_life = ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
@@ -47,7 +47,7 @@ my_dataframe$quality_of_life = ABRSQOL(
   tolerance = 1e-11,
   maxiter = 50000
 )
-write.csv(my_dataframe, 'qol_of_my_data.csv'
+write.csv(my_dataframe, 'qol_of_my_data.csv')
 ```
 
 #### Example 3: Reference variables in your dataset by using the column index
