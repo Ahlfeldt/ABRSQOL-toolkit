@@ -21,7 +21,7 @@ library(ABRSQOL)
 my_dataframe <- read.csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
 
 # Use ABRSQOL to solve for quality of life 
-my_dataframe$quality_of_life = ABRSQOL(
+my_dataframe$QoL1 = ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
   # specify the corresponding variable name for your data set. 
@@ -45,5 +45,15 @@ my_dataframe$quality_of_life = ABRSQOL(
 write.csv(my_dataframe, 'qol_of_my_data.csv')
 # To check where R saved the data
 getwd()
+
+# Now that all variables are defined, you can change parameter values with a simplified syntax
+my_dataframe$QoL2 = ABRSQOL(
+  df=my_dataframe,
+  alpha = 0.7,
+  beta = 0.5,
+  gamma = 3,
+  xi = 5.5,
+  conv = 0.5
+)
 
 # DONE
