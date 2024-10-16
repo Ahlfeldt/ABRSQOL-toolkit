@@ -141,7 +141,7 @@ ABRSQOL <- function(
   P_t = df[[P_t]]
   p_H = df[[p_H]]
   p_n = df[[p_n]]
-
+  
 
   # if there are unequal number of rows = units of observation per variable throw an error
   if(length( unique(c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n)))) != 1){
