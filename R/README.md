@@ -47,7 +47,8 @@ my_dataframe$quality_of_life = ABRSQOL(
   tolerance = 1e-11,
   maxiter = 50000
 )
-write.csv(my_dataframe, 'qol_of_my_data.csv')
+# Write output to target folder (just replace the path)
+write.csv(my_dataframe, 'C:/FOLDER/qol_of_my_data.csv')
 ```
 
 #### Example 3: Reference variables in your dataset by using the column index
