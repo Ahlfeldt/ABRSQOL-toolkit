@@ -1,3 +1,0 @@
-install.packages('devtools')
-devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R')
-library('XXXXXXXX')
