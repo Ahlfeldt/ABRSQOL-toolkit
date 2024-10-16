@@ -3,7 +3,8 @@
 
 
 ## Installation
-To install the R package of the ABRSQOL-toolkit, you must first install the devtools package:
+To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
+If you are new to R, note that you need to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
 
 ``` r
 install.packages('devtools')
@@ -21,7 +22,6 @@ testdata = get("ABRSQOL_testdata")
 testdata$QoL = ABRSQOL(df=testdata)
 View(testdata)
 ```
-
 
 ### Example 2: load your data from csv, run inversion, save result as csv
 ``` r
