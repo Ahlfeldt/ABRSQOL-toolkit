@@ -4,7 +4,7 @@
 
 ## Installation
 To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
-If you are new to R, note that you need to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
+If you are new to R, note it might be necessary to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
 
 ``` r
 install.packages('devtools')
