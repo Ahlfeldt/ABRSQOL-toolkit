@@ -187,7 +187,6 @@ ABRSQOL <- function(
   A_hat <- matrix(1, J, Theta); # First guess: all locations have the same QoL
   A <- A_hat;
 
-  O_vector_total <- list(); # list to track convergence
   O_total = 100000; # Starting value for loop
   count <- 1; # Counts the number of iterations
 
@@ -210,7 +209,6 @@ ABRSQOL <- function(
 
     # (5) Calculate deviations from inital guesses for QoL levels
     O_total <- sum(abs(A_hat_up-A_hat))/J;
-    O_vector_total[count] <- O_total;
 
     # Update QoL levels for next iteration of loop
     A_hat <- conv * A_hat_up + (1-conv) * A_hat;
