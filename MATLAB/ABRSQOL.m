@@ -71,17 +71,17 @@ P_hat = (P_t_hat.^(alpha.*beta)) .* (p_n_hat.^(alpha.*(1-beta))) .* (p_H_hat.^(1
 P = (P_t.^(alpha.*beta)) .* (p_n.^(alpha.*(1-beta))) .* (p_H.^(1-alpha));
 
 count = 1; % Counts the number of iterations
-upfactor = 0.2; % Updating factor in loop
+conv = 0.2; % Updating factor in loop
 
 O_total = 100000; % Starting value for loop
-tolerance_total = 1*10^(-10); % Tolerance level for loop
+tolerance = 1*10^(-10); % Tolerance level for loop
 
 % Guess values relative QoL
 
 A_hat = ones(JJ,1); % First guess: all locations have the same QoL
 A = A_hat;
 
-while O_total > tolerance_total 
+while O_total > tolerance 
 
 % (1) Calculate model-consistent aggregation shares, Psi_b
 
@@ -109,7 +109,7 @@ O_vector_total(count) = sum(abs(A_hat_up-A_hat),'all');
 
 % Update QoL levels for next iteration of loop
 
-A_hat = upfactor .* A_hat_up + (1-upfactor) .* A_hat;
+A_hat = conv .* A_hat_up + (1-conv) .* A_hat;
 A = A_hat;
 
 % Next iteration
