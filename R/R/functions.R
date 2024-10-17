@@ -219,8 +219,8 @@ ABRSQOL <- function(
     count <- count+1;
 
   }
-  cat("\n...QoL variable generated: ")
-  cat(str(A))
+  cat("\n...QoL variable generated: ");
+  cat(str(A));
   cat("\n");
 
   return(as.vector(A))
