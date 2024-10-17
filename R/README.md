@@ -62,7 +62,7 @@ my_dataframe$QoL = ABRSQOL(
 )
 ```
 
-### Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
+### Example 4: Having named the variables in your data according to the default parameters, you can omit specifying variable names
 ``` r
 my_dataframe$QoL = ABRSQOL(
   df=my_dataframe,
@@ -73,3 +73,7 @@ my_dataframe$QoL = ABRSQOL(
   conv = 0.5
 )
 ```
+
+## Ready-to-use script
+
+If you are new to R, you may find it useful to execute the Example.R script saved in this folder. It will install the package, load the testing data set, generate a quality-of-life index, and save it to your working directory.  It should be straightforward to adapt the script to your data and preferred parameter values.
