@@ -190,7 +190,7 @@ ABRSQOL <- function(
   O_total = 100000; # Starting value for loop
   count <- 1; # Counts the number of iterations
 
-  cat("\nBegin loop to solve for QoL...\n");
+  cat("\nBegin loop to solve for quality of life measure:\n");
   while (O_total > tolerance && count <= maxiter){
     cat("\rIteration:",count,"/",maxiter,
     ". Value of objective function:",O_total," > ",tolerance);
@@ -198,10 +198,10 @@ ABRSQOL <- function(
     # (1) Calculate model-consistent aggregation shares, Psi_b
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma);
     Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1);
-    
+
     # (2) Calculate mathcal_L
     mathcal_L <- apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1);
-    
+
     # (3) Calculate relative mathcal_L
     mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`);
 
@@ -219,9 +219,8 @@ ABRSQOL <- function(
     count <- count+1;
 
   }
-  cat("\n...QoL variable generated: ");
-  cat(str(A));
-  cat("\n");
 
+  cat("\nQuality of life measure generated and returned as vector.");
   return(as.vector(A))
+
 }
