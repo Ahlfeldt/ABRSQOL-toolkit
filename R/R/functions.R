@@ -197,7 +197,6 @@ ABRSQOL <- function(
 
     # (1) Calculate model-consistent aggregation shares, Psi_b
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma);
-    lambda_nb <- sweep(nom, 2, apply(nom, 2, function(x) sum(x)), `/` );
     Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1);
     
     # (2) Calculate mathcal_L
@@ -221,16 +220,6 @@ ABRSQOL <- function(
     count <- count+1;
 
   }
-  cat("\n------------------------------------------------------------------");
-  cat("\nFinalizing:");
-  L_i = lambda_nb * (apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1));
-  test_agg = sum(L_i)-L_bar; # should be zero!!
-  test_i = L_i-L; # should be zero for all i !!#
-  cat("\nOverall deviation:");
-  cat(str(test_agg));
-  cat("\nVector of deviations:");
-  cat(str(test_i,vec.len=20));
-  cat("\n------------------------------------------------------------------\n");
   cat("\n...QoL variable generated:\n")
   cat(str(A,vec.len=20))
   cat("\n------------------------------------------------------------------");
