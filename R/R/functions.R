@@ -192,8 +192,8 @@ ABRSQOL <- function(
 
   cat("\nBegin loop to solve for QoL...\n");
   while (O_total > tolerance && count <= maxiter){
-    cat("\rIteration: "+str(count)+"/"+str(maxiter)+
-    ". Value of objective function:"+str(O_total)+" > "+str(tolerance));
+    cat("\rIteration:",count,"/",maxiter,
+    ". Value of objective function:",O_total," > ",tolerance);
 
     # (1) Calculate model-consistent aggregation shares, Psi_b
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma);
