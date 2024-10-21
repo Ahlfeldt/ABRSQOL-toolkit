@@ -1,5 +1,59 @@
+
+# Within R Version
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 *.Rproj
+
+# Python Version:
+# Temporary and binary files
+Python/ABRSQOL/*~
+Python/ABRSQOL/*.py[cod]
+Python/ABRSQOL/*.so
+Python/ABRSQOL/*.cfg
+Python/ABRSQOL/!.isort.cfg
+Python/ABRSQOL/!setup.cfg
+Python/ABRSQOL/*.orig
+Python/ABRSQOL/*.log
+Python/ABRSQOL/*.pot
+Python/ABRSQOL/__pycache__/*
+Python/ABRSQOL/.cache/*
+Python/ABRSQOL/.*.swp
+Python/ABRSQOL/*/.ipynb_checkpoints/*
+Python/ABRSQOL/.DS_Store
+# Project files
+Python/ABRSQOL/.ropeproject
+Python/ABRSQOL/.project
+Python/ABRSQOL/.pydevproject
+Python/ABRSQOL/.settings
+Python/ABRSQOL/.idea
+Python/ABRSQOL/.vscode
+Python/ABRSQOL/tags
+# Package files
+Python/ABRSQOL/*.egg
+Python/ABRSQOL/*.eggs/
+Python/ABRSQOL/.installed.cfg
+Python/ABRSQOL/*.egg-info
+# Unittest and coverage
+Python/ABRSQOL/htmlcov/*
+Python/ABRSQOL/.coverage
+Python/ABRSQOL/.coverage.*
+Python/ABRSQOL/.tox
+Python/ABRSQOL/junit*.xml
+Python/ABRSQOL/coverage.xml
+Python/ABRSQOL/.pytest_cache/
+# Build and docs folder/files
+Python/ABRSQOL/build/*
+Python/ABRSQOL/dist/*
+Python/ABRSQOL/sdist/*
+Python/ABRSQOL/docs/api/*
+Python/ABRSQOL/docs/_rst/*
+Python/ABRSQOL/docs/_build/*
+Python/ABRSQOL/cover/*
+Python/ABRSQOL/MANIFEST
+
+# Per-project virtualenvs
+Python/ABRSQOL/.venv*/
+Python/ABRSQOL/.conda*/
+Python/ABRSQOL/.python-version
