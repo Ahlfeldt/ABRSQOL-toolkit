@@ -1,4 +1,4 @@
-#' ABRSQOL numerical solvers for quality-of-life measures
+#' ABRSQOL numerical solution algorithm to invert a quality of life measure
 #'
 #' @description
 #' This toolkit implements a numerical solution algorithm
@@ -18,10 +18,11 @@
 #' Therefore, the inverted QoL measures measure has a relative
 #' interpretation only. We normalize the QoL relative to the first
 #' observation in the data set. It is straightforward to rescale
-#'  the QoL measure to any other location or any other value (such
+#' the QoL measure to any other location or any other value (such
 #' as the mean or median in the distribution of QoL across locations).
 #'
-#' @param df input data: data.frame or matrix
+#' @param df input data containing variables refenced by 
+#' following arguments: data.frame or matrix
 #' @param w wage index variable name or column index:
 #' character or integer (or list), default='w'
 #' @param p_H floor_space_price variable name or column index:
@@ -48,9 +49,9 @@
 #' Smaller values imply greater precision and longer convergence):
 #' double, default=1e-10
 #' @param maxiter Maximum number of iterations after which the algorithm
-#' is forced to stop: integer, default=10
+#' is forced to stop: integer, default=1e4
 #'
-#' @return Numeric vector of quality of life measure
+#' @return inverted quality of life measure as Numeric vector
 #' (identified up to a constant)
 #'
 #' @examples
