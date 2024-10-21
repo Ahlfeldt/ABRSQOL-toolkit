@@ -8,7 +8,7 @@ If you are new to R, note it might be necessary to install [R-tools](https://cra
 
 ```console
 
-pip install -e "vcs+protocol://repo_url/#egg=pkg&subdirectory=pkg_dir"
+pip install -e "vcs+protocol://https://github.com/Ahlfeldt/ABRSQOL-toolkit/#egg=pkg&subdirectory=pkg_dir"
 
 pip install -e "git+https://git.repo/some_repo.git#egg=$NAME_OF_PACKAGE&subdirectory=$SUBDIR_IN_REPO" # install a python package from a repo subdirectory
 
