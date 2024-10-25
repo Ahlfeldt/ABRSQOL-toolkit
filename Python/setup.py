@@ -27,7 +27,7 @@ setup(
 
     packages=find_packages(exclude=['tests', 'tests.*']),
     install_requires=[
-        'pandas', 'numpy'
+        'numpy', 'pandas', 
     ],
     extras_require={
         'test': extra_test,
