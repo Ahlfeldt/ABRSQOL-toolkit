@@ -10,6 +10,12 @@ If you are new to R, note it might be necessary to install [R-tools](https://cra
 
 pip install -e "vcs+protocol://https://github.com/Ahlfeldt/ABRSQOL-toolkit/#egg=pkg&subdirectory=pkg_dir"
 
+pip install -e "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python/ABRSQOL&egg=ABRSQOL"
+
+
+pip install "git+https://git@github.com/adamatan/github-packages-python.git#subdirectory=packaging_tutorial&egg=example-pkg-adamatan"
+pip install git+https://github.com/adamatan/github-packages-python.git#subdirectory=packaging_tutorial
+
 pip install -e "git+https://git.repo/some_repo.git#egg=$NAME_OF_PACKAGE&subdirectory=$SUBDIR_IN_REPO" # install a python package from a repo subdirectory
 
 

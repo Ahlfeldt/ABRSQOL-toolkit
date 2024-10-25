@@ -13,7 +13,7 @@ if __name__ == "__main__":
     try:
         setup(
             use_scm_version={"version_scheme": "no-guess-dev"},
-            package_data={'ABRSQOL' :['./resources/data/ABRSQOL-testdata.csv']}
+            #package_data={'ABRSQOL' :['./resources/data/ABRSQOL-testdata.csv']}
             )
     except:  # noqa
         print(
