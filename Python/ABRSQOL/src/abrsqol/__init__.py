@@ -11,7 +11,7 @@ else:
 try:
     # Change here if project is renamed and does not equal the package name
     dist_name = "ABRSQOL"
-    __version__ = version(dist_name)
+    # __version__ = version(dist_name)
     __version__ = "9.9.9"
 except PackageNotFoundError:  # pragma: no cover
     __version__ = "unknown"
