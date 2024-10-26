@@ -41,10 +41,11 @@ my_dataframe$QoL1 = ABRSQOL(
   tolerance = 1e-11,
   maxiter = 50000
 )
+# Check current working directory where output will be saved
+getwd()
 # Write output to target folder (just replace the path)
 write.csv(my_dataframe, 'qol_of_my_data.csv')
-# To check where R saved the data
-getwd()
+
 
 # only df argument is required.
 # Whenever you don't specify another argument its defaul value will be used.
