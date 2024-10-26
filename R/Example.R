@@ -44,7 +44,7 @@ my_dataframe$QoL1 = ABRSQOL(
 # Check current working directory where output will be saved
 getwd()
 # Write output to target folder (just replace the path)
-write.csv(my_dataframe, 'qol_of_my_data.csv')
+write.csv(my_dataframe, 'my_data_with_qol.csv')
 
 
 # only df argument is required.
