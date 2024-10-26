@@ -21,7 +21,7 @@ setup(
     version=__version__,
     description='Numerical solution algorithm to invert a quality of life measure.',
 
-    url='https://github.com/Ahlfeldt/ABRSQOL-toolkit/blob/main/Python/ABRSQOL/',
+    url='https://github.com/Ahlfeldt/ABRSQOL-toolkit/blob/main/Python',
     author='Gabriel M Ahlfeldt',
     author_email='g.ahlfeldt@hu-berlin.de',
     

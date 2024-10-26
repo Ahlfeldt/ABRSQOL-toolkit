@@ -1,9 +1,11 @@
-from ABRSQOL import invert_quality_of_life, testdata
-
+import ABRSQOL
 
 def test_ABRSQOL():
+    """
+    test invert_quality_of_life with testdata and default parameters
+    """
     try:
-        invert_quality_of_life(df=testdata)
+        ABRSQOL.invert_quality_of_life(df=ABRSQOL.testdata)
         success=True
     except:
         success=False

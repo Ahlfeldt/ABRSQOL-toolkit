@@ -8,35 +8,27 @@ If you are new to R, note it might be necessary to install [R-tools](https://cra
 
 ```console
 
-pip install -e "vcs+protocol://https://github.com/Ahlfeldt/ABRSQOL-toolkit/#egg=pkg&subdirectory=pkg_dir"
-
-pip install -e "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python/ABRSQOL&egg=ABRSQOL"
-
-
-pip install "git+https://git@github.com/adamatan/github-packages-python.git#subdirectory=packaging_tutorial&egg=example-pkg-adamatan"
-pip install git+https://github.com/adamatan/github-packages-python.git#subdirectory=packaging_tutorial
-
-pip install -e "git+https://git.repo/some_repo.git#egg=$NAME_OF_PACKAGE&subdirectory=$SUBDIR_IN_REPO" # install a python package from a repo subdirectory
+pip install -e "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
 
 
 ```
-You may then install and load it by running:
+You may then load it by running:
 ```python
-from abrsqol import ABRSQOL
+import ABRSQOL
 ```
 
 ## Examples
 ### Example 1: load testdata, run QoL inversion with default parameters, store result as 'QoL' variable, view result
-``` r
-testdata = get("ABRSQOL_testdata")
-testdata$QoL = ABRSQOL(df=testdata)
-View(testdata)
+```python
+testdata = ABRSQOL.testdata
+testdata['QoL'] = ABRSQOL.invert_quality_of_life(df=testdata)
+testdata.head()
 ```
 
 ### Example 2: load your data from csv, run inversion, save result as csv
-``` r
+```python
 my_dataframe = read.csv("path/to/your/csv_filename.csv")
-my_dataframe$quality_of_life = ABRSQOL(
+my_dataframe['quality_of_life'] = ABRSQOL.invert_quality_of_life(
   # supply your dataset as a dataframe
   df=my_dataframe,
   # specify the corresponding variable name for your dataset
@@ -56,12 +48,13 @@ my_dataframe$quality_of_life = ABRSQOL(
   maxiter = 50000
 )
 # Write output to target folder (just replace the path)
-write.csv(my_dataframe, 'C:/FOLDER/qol_of_my_data.csv')
+from pandas import write_csv
+write_csv(my_dataframe, 'C:/FOLDER/my_data_with_qol.csv')
 ```
 
 ### Example 3: Reference variables in your dataset by using the column index
-``` r
-my_dataframe$QoL = ABRSQOL(
+```python
+my_dataframe['QoL'] = ABRSQOL.invert_quality_of_life(
   df=my_dataframe,
   w = 1,
   p_H = 3,
@@ -73,8 +66,8 @@ my_dataframe$QoL = ABRSQOL(
 ```
 
 ### Example 4: Having named the variables in your data according to the default parameters, you can omit specifying variable names
-``` r
-my_dataframe$QoL = ABRSQOL(
+```python
+my_dataframe['QoL'] = ABRSQOL.invert_quality_of_life(
   df=my_dataframe,
   alpha = 0.7,
   beta = 0.5,
@@ -86,4 +79,4 @@ my_dataframe$QoL = ABRSQOL(
 
 ## Ready-to-use script
 
-If you are new to R, you may find it useful to execute the Example.R script saved in this folder. It will install the package, load the testing data set, generate a quality-of-life index, and save it to your working directory.  It should be straightforward to adapt the script to your data and preferred parameter values.
+If you are new to Python, you may find it useful to execute the Example.py (or Example.ipynb) script saved in this folder. It will install the package, load the testing data set, generate a quality-of-life index, and save it to your working directory.  It should be straightforward to adapt the script to your data and preferred parameter values.
