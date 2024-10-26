@@ -46,9 +46,14 @@ write.csv(my_dataframe, 'qol_of_my_data.csv')
 # To check where R saved the data
 getwd()
 
-# Now that all variables are defined, you can change parameter values with a simplified syntax
+# only df argument is required.
+# Whenever you don't specify another argument its defaul value will be used.
+# In this case assume all variables in my_dataframe are named as default,
+# except for L (residence population) and L_b (hometown population)
 my_dataframe$QoL2 = ABRSQOL(
   df=my_dataframe,
+  L = 'residence_pop',
+  L_b = 'home_pop',
   alpha = 0.7,
   beta = 0.5,
   gamma = 3,
