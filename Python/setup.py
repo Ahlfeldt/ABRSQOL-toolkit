@@ -24,11 +24,14 @@ setup(
     url='https://github.com/Ahlfeldt/ABRSQOL-toolkit/blob/main/Python/ABRSQOL/',
     author='Gabriel M Ahlfeldt',
     author_email='g.ahlfeldt@hu-berlin.de',
-
-    packages=find_packages(exclude=['tests', 'tests.*']),
+    
+    setup_requires=["numpy"],
     install_requires=[
         'numpy', 'pandas', 
     ],
+
+    packages=find_packages(exclude=['tests', 'tests.*']),
+    
     extras_require={
         'test': extra_test,
         'dev': extra_dev,
