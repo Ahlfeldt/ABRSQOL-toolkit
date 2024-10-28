@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from Python.set_metadata import (
+from set_metadata import (
     name, 
     version,
     description,
