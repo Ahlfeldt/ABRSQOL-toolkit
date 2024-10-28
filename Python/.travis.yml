@@ -6,7 +6,7 @@ python:
 cache: pip
 
 install:
-  - pip install --upgrade setuptools==70.0.0
+  - pip install -U pip setuptools
   - pip install -e .[ci]
 
 

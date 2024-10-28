@@ -18,7 +18,8 @@ interpretation only. We normalize the QoL relative to the first
 observation in the data set. It is straightforward to rescale
 the QoL measure to any other location or any other value (such
 as the mean or median in the distribution of QoL across locations).
-When using this programme or the toolkit in your work, please cite the paper.
+
+When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel (forthcoming): Measuring quality of life under spatial frictions
 
 ## Installation
 To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
