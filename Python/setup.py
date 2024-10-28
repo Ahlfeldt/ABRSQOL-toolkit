@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 
-
 extra_test = [
     'pytest>=4',
     'pytest-cov>=2',
@@ -24,8 +23,8 @@ setup(
     name=name,
     version="0.1.0",
     description='Numerical solution algorithm to invert a quality of life measure.',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
+    # long_description=long_description,
+    # long_description_content_type='text/markdown',
     url='https://github.com/Ahlfeldt/ABRSQOL-toolkit/blob/main/Python',
     author='Gabriel M Ahlfeldt',
     author_email='g.ahlfeldt@hu-berlin.de',
