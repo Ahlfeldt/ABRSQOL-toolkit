@@ -30,7 +30,6 @@ setup(
     author='Gabriel M Ahlfeldt',
     author_email='g.ahlfeldt@hu-berlin.de',
     license='MIT',
-    setup_requires=["numpy"],
     install_requires=['numpy', 
                       'pandas', 
     ],
