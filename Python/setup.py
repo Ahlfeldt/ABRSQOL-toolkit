@@ -1,15 +1,20 @@
 from setuptools import setup, find_packages
 
+name = 'ABRSQOL'
+
+extra_test = ['pytest>=4', 'pytest-cov>=2',]
+extra_dev = [*extra_test,'twine>=4.0.2',]
+extra_ci = [*extra_test,'python-coveralls',]
+
 with open('./README.md', 'r') as f:
     long_description = f.read()
 
-name = 'ABRSQOL'
 setup(
     name=name,
     version="0.1.0",
     description='Numerical solution algorithm to invert a quality of life measure.',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
+    # long_description=long_description,
+    # long_description_content_type='text/markdown',
     url='https://github.com/Ahlfeldt/ABRSQOL-toolkit/blob/main/Python',
     author='Gabriel M Ahlfeldt',
     author_email='g.ahlfeldt@hu-berlin.de',
