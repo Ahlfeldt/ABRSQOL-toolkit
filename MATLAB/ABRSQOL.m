@@ -2,7 +2,8 @@
 %%% Illustrative application of the ABRSQOL-toolkit based on                 
 %%% Ahlfeldt, Bald, Roth, Seidel:                                            
 %%% Measuring quality of life under spatial frictions                        	                                                            											
-%%% (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel          
+%%% (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel    
+%%% Version 1.0.0                                                            
 %%% 10/2024                                                                  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

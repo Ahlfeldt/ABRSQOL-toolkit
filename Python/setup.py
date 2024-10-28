@@ -11,7 +11,7 @@ with open('./README.md', 'r') as f:
 
 setup(
     name=name,
-    version="0.1.0",
+    version="1.0.0",
     description='Numerical solution algorithm to invert a quality of life measure.',
     long_description=long_description,
     long_description_content_type='text/markdown',
