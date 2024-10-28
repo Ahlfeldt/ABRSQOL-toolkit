@@ -26,7 +26,7 @@ If you are new to R, note it might be necessary to install [R-tools](https://cra
 
 ```console
 
-pip install -e "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
+pip install "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
 
 
 ```

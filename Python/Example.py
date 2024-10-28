@@ -9,7 +9,7 @@
 
 # Install and run ABRSQOL-toolkit
 # install package into your environment through your console via
-# pip install -e "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
+# pip install "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
 
 
 import ABRSQOL

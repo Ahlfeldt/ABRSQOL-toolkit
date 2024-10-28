@@ -35,8 +35,6 @@ setup(
     ],
 
     packages=[name],
-    # packages=find_packages(where='app'),
-    # package_dir={"":"app"}
     extras_require={
         'test': extra_test,
         'dev': extra_dev,
