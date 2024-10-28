@@ -2,7 +2,7 @@
 *** Quality of life solver for                                               ***
 *** Ahlfeldt, Bald, Roth, Seidel:                                            ***
 *** Measuring quality of life under spatial frictions                        ***	
-*** Version 1.0.0                                                             ***											
+*** Version 1.0.0                                                            ***											
 *** (c) Gabriel M Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel          ***
 *** 10/2024                                                                  ***
 ********************************************************************************
