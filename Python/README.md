@@ -26,11 +26,19 @@ To install the R package of the ABRSQOL-toolkit from github, you must first inst
 If you are new to R, note it might be necessary to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
 
 ```console
-
 pip install "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
-
-
 ```
+In case an error occurs at the installation (error: metadata-generation-failed), it is likely caused by incompatabile versions of setuptools and packaging. 
+This can be fixed by upgrading packaging to compatible versions:
+```console
+pip install --upgrade setuptools>=74.1.1
+pip install --upgrade packaging>=22.0
+```
+Or by downgrading setuptools:
+```console
+pip install --upgrade setuptools==70.0.0
+```
+
 You may then load it by running:
 ```python
 import ABRSQOL
