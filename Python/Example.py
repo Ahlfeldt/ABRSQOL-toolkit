@@ -15,11 +15,12 @@
 import ABRSQOL
 from pandas import read_csv
 import os
+import pandas as pd
 
 # Load your data. You can replace the URL in "" with a local path on your machine, e.g. "c:\temp\ABRSQOL-testdata.csv"
-# my_dataframe <- read_csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
+my_dataframe = pd.read_csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
 # or load testdata to inspect format requierement of input data
-my_dataframe = ABRSQOL.testdata
+# my_dataframe = ABRSQOL.testdata
 
 # Use ABRSQOL to solve for quality of life 
 my_dataframe['QoL1'] = ABRSQOL.invert_quality_of_life(
@@ -46,12 +47,17 @@ my_dataframe['QoL1'] = ABRSQOL.invert_quality_of_life(
 print(os.getcwd())
 # Write output to target folder (just replace the path)
 my_dataframe.to_csv('my_data_with_qol.csv', index=False)  
+my_dataframe.describe()
 
 
 # only df argument is required.
 # Whenever you don't specify another argument its defaul value will be used.
 # In this case assume all variables in my_dataframe are named as default,
 # except for L (residence population) and L_b (hometown population)
+my_dataframe['residence_pop'] = my_dataframe['L']
+# Generate new variables with different names for illustration
+my_dataframe['home_pop'] = my_dataframe['L_b']
+# Rerun the package with simplified syntax
 my_dataframe['QoL2'] = ABRSQOL.invert_quality_of_life(
   df=my_dataframe,
   L = 'residence_pop',
@@ -62,5 +68,6 @@ my_dataframe['QoL2'] = ABRSQOL.invert_quality_of_life(
   xi = 5.5,
   conv = 0.5
 )
+my_dataframe.describe()
 
 # DONE
