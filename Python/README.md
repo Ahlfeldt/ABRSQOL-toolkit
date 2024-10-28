@@ -22,8 +22,7 @@ as the mean or median in the distribution of QoL across locations).
 When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel (forthcoming): Measuring quality of life under spatial frictions
 
 ## Installation
-To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
-If you are new to R, note it might be necessary to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
+To install the Python package of the ABRSQOL-toolkit from github, run the following command in your python environment, run the following command in you anaconda shell. 
 
 ```console
 pip install "git+https://git@github.com/Ahlfeldt/ABRSQOL-toolkit.git#subdirectory=Python&egg=ABRSQOL"
