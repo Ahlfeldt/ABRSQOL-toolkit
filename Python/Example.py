@@ -15,10 +15,9 @@
 import ABRSQOL
 from pandas import read_csv
 import os
-import pandas as pd
 
 # Load your data. You can replace the URL in "" with a local path on your machine, e.g. "c:\temp\ABRSQOL-testdata.csv"
-my_dataframe = pd.read_csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
+my_dataframe = read_csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
 # or load testdata to inspect format requierement of input data
 # my_dataframe = ABRSQOL.testdata
 
