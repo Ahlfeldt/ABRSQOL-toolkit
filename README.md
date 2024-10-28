@@ -15,7 +15,7 @@ When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Ba
 
 Name | Description |
 |:---------------------------------------------|:-------------------------------------------------------------------------|
-| [DATA]("https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/DATA") | Folder2 containing data a set on which ABRSQOL can be tested.   |
+| [DATA]("https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/DATA") | Folder containing data a set on which ABRSQOL can be tested.   |
 | [MATLAB]("https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/MATLAB") | Folder containing a MATLAB function along with instructions. It does not contain the variables used in the paper.  |
 | [Python]("https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/Python") | Folder containing a Python package along with instructions. |
 | [R]("https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/R") | Folder containing an R package along with instructions.  |
