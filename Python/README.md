@@ -37,6 +37,7 @@ Or by downgrading setuptools:
 ```console
 pip install --upgrade setuptools==70.0.0
 ```
+Notice that you must also install 'git' available at https://git-scm.com/ for the installation to work.
 
 You may then load it by running:
 ```python
