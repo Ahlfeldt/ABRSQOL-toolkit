@@ -1,6 +1,6 @@
-
 # ABRSQOL
 
+The R version of the toolkit was developed by [Max von Mylius](https://github.com/maximylius) based on the Stata MATLAB functions.
 
 ## Installation
 To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
