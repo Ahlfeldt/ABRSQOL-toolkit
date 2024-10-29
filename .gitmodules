@@ -1,0 +1,3 @@
+[submodule "Python"]
+	path = Python
+	url = https://github.com/Ahlfeldt/ABRSQOL-toolkit-python
