@@ -15,8 +15,8 @@ When using this toolkit in your work, please cite Gabriel M. Ahlfeldt, Fabian Ba
 
 1. Navigate to the subfolder of your preferred language ([MATLAB](https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/MATLAB), [Python](https://github.com/Ahlfeldt/ABRSQOL-toolkit-python), [R](https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/R), [Stata](https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/Stata))
 2. Follow installation / setup instructions from `README.md` of the respective folder
-3. Consult Example scripts to get familiar with functions
-4. Apply the ABRSQOL-toolkit on your data to optained the inverted quality of life measure 
+3. Consult `Example` script in respective folder to get familiar with the toolkit
+4. Apply the toolkit on your data to invert the quality of life measure 
 
 
 ## Repository contents
