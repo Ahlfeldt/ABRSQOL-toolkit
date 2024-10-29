@@ -1,7 +1,7 @@
 # Toolking for measuring quality of life under spatial frictions
 (c) Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel
 
-Version 0.9, 2024-09
+Version 1.0.0, 2024-10
 
 **General instructions:**
 
