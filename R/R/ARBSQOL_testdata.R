@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' library('ABRSQOL')
-#' testdata = get("ABRSQOL_testdata")
-#' testdata$QoL = ABRSQOL(df=testdata)
-#' View(testdata)
+#' data(ABRSQOL_testdata)
+#' ABRSQOL_testdata$QoL = ABRSQOL(df=ABRSQOL_testdata)
+#' View(ABRSQOL_testdata)
 "ABRSQOL_testdata"
