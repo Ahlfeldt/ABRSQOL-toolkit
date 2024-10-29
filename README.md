@@ -35,7 +35,7 @@ Folder | Name  | Description |
 | [Stata](https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/Stata) | `abrsqol.ado` | Stata ado file. It needs to be copied to your personal ado file folder. This is done by the Examlple.do file. You can also copy it manually. To locate the path, type `adopath` in Stata. Alternatively, you can type `ssc install ABRSQOL` in Stata. |
 | [Stata](https://github.com/Ahlfeldt/ABRSQOL-toolkit/tree/main/Stata) | `abrsqol.sthlp` | Stata help file. It needs to be copied to your personal ado file folder. This is done by the Examlple.do file. You can also copy it manually. Once copied, you can call it by typing `help ABRSQOL` in Stata.
 
-**Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
+**Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files (`abrsqol.ado`, `abrsqol.sthlp`) to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
 
 **Other files**:
 
