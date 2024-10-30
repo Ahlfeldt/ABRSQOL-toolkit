@@ -1,0 +1,249 @@
+* using log directory 'C:/Users/BSE/Documents/MaxVonMylius/HiWi/QualityOfLife/Github/ABRSQOL-toolkit/R/ABRSQOL.Rcheck'
+* using R version 4.4.1 (2024-06-14 ucrt)
+* using platform: x86_64-w64-mingw32
+* R was compiled by
+    gcc.exe (GCC) 13.2.0
+    GNU Fortran (GCC) 13.2.0
+* running under: Windows 10 x64 (build 19045)
+* using session charset: UTF-8
+* checking for file 'ABRSQOL/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'ABRSQOL' version '1.0.0'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking whether package 'ABRSQOL' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+License stub is invalid DCF.
+Das Authors@R Feld enthält keine Person mit Namen und Rollen
+Das Authors@R Feld enthält keine Person als Maintainer mit zulässiger
+Mailadresse und nicht-leerem Namen
+Checking should be performed on sources prepared by 'R CMD build'.
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking code files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... WARNING
+Warnung: Parse-Fehler in Datei 'lines':
+1: unerwartetes Symbol
+51: # Example 3: Reference variables in your dataset by using the column index
+52: ABRSQOL
+    ^
+* checking contents of 'data' directory ... OK
+* checking data for non-ASCII characters ... WARNING
+  Warning: found non-ASCII strings
+  'L<c3><bc>beck' in object 'ABRSQOL_testdata'
+  'G<c3><b6>ttingen' in object 'ABRSQOL_testdata'
+  'L<c3><bc>chow-Dannenberg' in object 'ABRSQOL_testdata'
+  'Osnabr<c3><bc>ck' in object 'ABRSQOL_testdata'
+  'D<c3><bc>sseldorf' in object 'ABRSQOL_testdata'
+  'K<c3><b6>ln' in object 'ABRSQOL_testdata'
+  'M<c3><bc>nster' in object 'ABRSQOL_testdata'
+  'H<c3><b6>xter' in object 'ABRSQOL_testdata'
+  'Gie<c3><9f>en' in object 'ABRSQOL_testdata'
+  'B<c3><b6>blingen' in object 'ABRSQOL_testdata'
+  'G<c3><b6>ppingen' in object 'ABRSQOL_testdata'
+  'Schw<c3><a4>bisch Hall' in object 'ABRSQOL_testdata'
+  'L<c3><b6>rrach' in object 'ABRSQOL_testdata'
+  'M<c3><bc>nchen' in object 'ABRSQOL_testdata'
+  'Alt<c3><b6>tting' in object 'ABRSQOL_testdata'
+  'N<c3><bc>rnberg' in object 'ABRSQOL_testdata'
+  'Wei<c3><9f>enburg-Gunzenhausen' in object 'ABRSQOL_testdata'
+  'W<c3><bc>rzburg' in object 'ABRSQOL_testdata'
+  'Saarbr<c3><bc>cken' in object 'ABRSQOL_testdata'
+  'M<c3><a4>rkisch-Oderland' in object 'ABRSQOL_testdata'
+  'Teltow-Fl<c3><a4>ming' in object 'ABRSQOL_testdata'
+  'S<c3><bc>dvorpommern' in object 'ABRSQOL_testdata'
+  'Dessau-Ro<c3><9f>lau' in object 'ABRSQOL_testdata'
+* checking data for ASCII and uncompressed saves ... OK
+* checking examples ... ERROR
+Running examples in 'ABRSQOL-Ex.R' failed
+The error most likely occurred in:
+
+> ### Name: ABRSQOL
+> ### Title: ABRSQOL numerical solution algorithm to invert a quality of life
+> ###   measure
+> ### Aliases: ABRSQOL
+> 
+> ### ** Examples
+> 
+> # Example 1: load testdata, run QoL inversion with default parameters, append and view result
+> data(ABRSQOL_testdata)
+> my_dataframe = ABRSQOL_testdata
+> my_dataframe$QoL = ABRSQOL(df=ABRSQOL_testdata)
+
+Begin loop to solve for quality of life measure:
+
+Iteration: 1 / 10000 . Value of objective function: 1e+05  >  1e-10
+Iteration: 2 / 10000 . Value of objective function: 0.1444495  >  1e-10
+Iteration: 3 / 10000 . Value of objective function: 0.08909052  >  1e-10
+Iteration: 4 / 10000 . Value of objective function: 0.05762155  >  1e-10
+Iteration: 5 / 10000 . Value of objective function: 0.03834277  >  1e-10
+Iteration: 6 / 10000 . Value of objective function: 0.02599107  >  1e-10
+Iteration: 7 / 10000 . Value of objective function: 0.01785973  >  1e-10
+Iteration: 8 / 10000 . Value of objective function: 0.01241281  >  1e-10
+Iteration: 9 / 10000 . Value of objective function: 0.008713095  >  1e-10
+Iteration: 10 / 10000 . Value of objective function: 0.006173899  >  1e-10
+Iteration: 11 / 10000 . Value of objective function: 0.004423485  >  1e-10
+Iteration: 12 / 10000 . Value of objective function: 0.003236319  >  1e-10
+Iteration: 13 / 10000 . Value of objective function: 0.002450633  >  1e-10
+Iteration: 14 / 10000 . Value of objective function: 0.001926957  >  1e-10
+Iteration: 15 / 10000 . Value of objective function: 0.001552014  >  1e-10
+Iteration: 16 / 10000 . Value of objective function: 0.001271591  >  1e-10
+Iteration: 17 / 10000 . Value of objective function: 0.001048596  >  1e-10
+Iteration: 18 / 10000 . Value of objective function: 0.0008664599  >  1e-10
+Iteration: 19 / 10000 . Value of objective function: 0.000714493  >  1e-10
+Iteration: 20 / 10000 . Value of objective function: 0.0005879247  >  1e-10
+Iteration: 21 / 10000 . Value of objective function: 0.0004828527  >  1e-10
+Iteration: 22 / 10000 . Value of objective function: 0.0003964957  >  1e-10
+Iteration: 23 / 10000 . Value of objective function: 0.0003252814  >  1e-10
+Iteration: 24 / 10000 . Value of objective function: 0.0002667476  >  1e-10
+Iteration: 25 / 10000 . Value of objective function: 0.0002185701  >  1e-10
+Iteration: 26 / 10000 . Value of objective function: 0.0001792633  >  1e-10
+Iteration: 27 / 10000 . Value of objective function: 0.0001471701  >  1e-10
+Iteration: 28 / 10000 . Value of objective function: 0.000121069  >  1e-10
+Iteration: 29 / 10000 . Value of objective function: 9.984398e-05  >  1e-10
+Iteration: 30 / 10000 . Value of objective function: 8.25308e-05  >  1e-10
+Iteration: 31 / 10000 . Value of objective function: 6.827915e-05  >  1e-10
+Iteration: 32 / 10000 . Value of objective function: 5.6626e-05  >  1e-10
+Iteration: 33 / 10000 . Value of objective function: 4.702243e-05  >  1e-10
+Iteration: 34 / 10000 . Value of objective function: 3.90601e-05  >  1e-10
+Iteration: 35 / 10000 . Value of objective function: 3.250337e-05  >  1e-10
+Iteration: 36 / 10000 . Value of objective function: 2.704979e-05  >  1e-10
+Iteration: 37 / 10000 . Value of objective function: 2.2515e-05  >  1e-10
+Iteration: 38 / 10000 . Value of objective function: 1.87447e-05  >  1e-10
+Iteration: 39 / 10000 . Value of objective function: 1.562703e-05  >  1e-10
+Iteration: 40 / 10000 . Value of objective function: 1.304705e-05  >  1e-10
+Iteration: 41 / 10000 . Value of objective function: 1.091981e-05  >  1e-10
+Iteration: 42 / 10000 . Value of objective function: 9.142648e-06  >  1e-10
+Iteration: 43 / 10000 . Value of objective function: 7.656518e-06  >  1e-10
+Iteration: 44 / 10000 . Value of objective function: 6.413595e-06  >  1e-10
+Iteration: 45 / 10000 . Value of objective function: 5.37398e-06  >  1e-10
+Iteration: 46 / 10000 . Value of objective function: 4.504157e-06  >  1e-10
+Iteration: 47 / 10000 . Value of objective function: 3.776217e-06  >  1e-10
+Iteration: 48 / 10000 . Value of objective function: 3.166863e-06  >  1e-10
+Iteration: 49 / 10000 . Value of objective function: 2.656639e-06  >  1e-10
+Iteration: 50 / 10000 . Value of objective function: 2.229298e-06  >  1e-10
+Iteration: 51 / 10000 . Value of objective function: 1.87127e-06  >  1e-10
+Iteration: 52 / 10000 . Value of objective function: 1.571224e-06  >  1e-10
+Iteration: 53 / 10000 . Value of objective function: 1.319692e-06  >  1e-10
+Iteration: 54 / 10000 . Value of objective function: 1.108765e-06  >  1e-10
+Iteration: 55 / 10000 . Value of objective function: 9.318321e-07  >  1e-10
+Iteration: 56 / 10000 . Value of objective function: 7.833684e-07  >  1e-10
+Iteration: 57 / 10000 . Value of objective function: 6.587541e-07  >  1e-10
+Iteration: 58 / 10000 . Value of objective function: 5.541253e-07  >  1e-10
+Iteration: 59 / 10000 . Value of objective function: 4.662495e-07  >  1e-10
+Iteration: 60 / 10000 . Value of objective function: 3.924215e-07  >  1e-10
+Iteration: 61 / 10000 . Value of objective function: 3.311376e-07  >  1e-10
+Iteration: 62 / 10000 . Value of objective function: 2.795669e-07  >  1e-10
+Iteration: 63 / 10000 . Value of objective function: 2.360774e-07  >  1e-10
+Iteration: 64 / 10000 . Value of objective function: 1.993942e-07  >  1e-10
+Iteration: 65 / 10000 . Value of objective function: 1.684452e-07  >  1e-10
+Iteration: 66 / 10000 . Value of objective function: 1.423284e-07  >  1e-10
+Iteration: 67 / 10000 . Value of objective function: 1.202843e-07  >  1e-10
+Iteration: 68 / 10000 . Value of objective function: 1.01674e-07  >  1e-10
+Iteration: 69 / 10000 . Value of objective function: 8.595919e-08  >  1e-10
+Iteration: 70 / 10000 . Value of objective function: 7.268672e-08  >  1e-10
+Iteration: 71 / 10000 . Value of objective function: 6.14747e-08  >  1e-10
+Iteration: 72 / 10000 . Value of objective function: 5.200138e-08  >  1e-10
+Iteration: 73 / 10000 . Value of objective function: 4.399558e-08  >  1e-10
+Iteration: 74 / 10000 . Value of objective function: 3.722866e-08  >  1e-10
+Iteration: 75 / 10000 . Value of objective function: 3.150783e-08  >  1e-10
+Iteration: 76 / 10000 . Value of objective function: 2.667048e-08  >  1e-10
+Iteration: 77 / 10000 . Value of objective function: 2.257945e-08  >  1e-10
+Iteration: 78 / 10000 . Value of objective function: 1.911896e-08  >  1e-10
+Iteration: 79 / 10000 . Value of objective function: 1.619133e-08  >  1e-10
+Iteration: 80 / 10000 . Value of objective function: 1.371409e-08  >  1e-10
+Iteration: 81 / 10000 . Value of objective function: 1.161759e-08  >  1e-10
+Iteration: 82 / 10000 . Value of objective function: 9.866055e-09  >  1e-10
+Iteration: 83 / 10000 . Value of objective function: 8.384023e-09  >  1e-10
+Iteration: 84 / 10000 . Value of objective function: 7.125104e-09  >  1e-10
+Iteration: 85 / 10000 . Value of objective function: 6.055629e-09  >  1e-10
+Iteration: 86 / 10000 . Value of objective function: 5.147023e-09  >  1e-10
+Iteration: 87 / 10000 . Value of objective function: 4.375031e-09  >  1e-10
+Iteration: 88 / 10000 . Value of objective function: 3.719067e-09  >  1e-10
+Iteration: 89 / 10000 . Value of objective function: 3.161652e-09  >  1e-10
+Iteration: 90 / 10000 . Value of objective function: 2.687949e-09  >  1e-10
+Iteration: 91 / 10000 . Value of objective function: 2.285359e-09  >  1e-10
+Iteration: 92 / 10000 . Value of objective function: 1.943183e-09  >  1e-10
+Iteration: 93 / 10000 . Value of objective function: 1.652336e-09  >  1e-10
+Iteration: 94 / 10000 . Value of objective function: 1.405103e-09  >  1e-10
+Iteration: 95 / 10000 . Value of objective function: 1.194931e-09  >  1e-10
+Iteration: 96 / 10000 . Value of objective function: 1.016252e-09  >  1e-10
+Iteration: 97 / 10000 . Value of objective function: 8.643393e-10  >  1e-10
+Iteration: 98 / 10000 . Value of objective function: 7.351746e-10  >  1e-10
+Iteration: 99 / 10000 . Value of objective function: 6.253453e-10  >  1e-10
+Iteration: 100 / 10000 . Value of objective function: 5.319515e-10  >  1e-10
+Iteration: 101 / 10000 . Value of objective function: 4.525293e-10  >  1e-10
+Iteration: 102 / 10000 . Value of objective function: 3.849847e-10  >  1e-10
+Iteration: 103 / 10000 . Value of objective function: 3.275382e-10  >  1e-10
+Iteration: 104 / 10000 . Value of objective function: 2.786776e-10  >  1e-10
+Iteration: 105 / 10000 . Value of objective function: 2.371173e-10  >  1e-10
+Iteration: 106 / 10000 . Value of objective function: 2.017647e-10  >  1e-10
+Iteration: 107 / 10000 . Value of objective function: 1.71691e-10  >  1e-10
+Iteration: 108 / 10000 . Value of objective function: 1.461068e-10  >  1e-10
+Iteration: 109 / 10000 . Value of objective function: 1.243406e-10  >  1e-10
+Iteration: 110 / 10000 . Value of objective function: 1.058219e-10  >  1e-10
+Quality of life measure generated and returned as vector.> View(my_dataframe)
+> 
+> # Example 2: load your data from csv, run inversion, save result as csv
+> # my_dataframe = read.csv("path/to/your/csv_filename.csv")
+> my_dataframe$quality_of_life = ABRSQOL(
++   # supply your dataset as a dataframe
++   df=my_dataframe,
++   # and specify the corresponding variable name for your dataset
++   w = 'wage',
++   p_H = 'floor_space_price',
++   P_t = 'tradable_goods_price',
++   p_n = 'local_services_price',
++   L = 'residence_pop',
++   L_b = 'L_b',
++   # freely adjust remaining parameters
++   alpha = 0.7,
++   beta = 0.5,
++   gamma = 3,
++   xi = 5.5,
++   conv = 0.3,
++   tolerance = 1e-11,
++   maxiter = 50000
++ )
+Error in `[.data.frame`(df, L) : undefined columns selected
+Calls: ABRSQOL -> matrix -> as.vector -> unlist -> [ -> [.data.frame
+Execution halted
+* checking for unstated dependencies in 'tests' ... OK
+* checking tests ... OK
+  Running 'testthat.R'
+* checking PDF version of manual ... WARNING
+LaTeX errors when creating PDF version.
+This typically indicates Rd problems.
+* checking PDF version of manual without index ... ERROR
+Re-running with no redirection of stdout/stderr.
+* DONE
+Status: 2 ERRORs, 3 WARNINGs, 1 NOTE

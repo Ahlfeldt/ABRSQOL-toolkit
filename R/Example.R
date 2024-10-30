@@ -18,10 +18,10 @@ devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R')
 library(ABRSQOL)
 
 # Load the testing data. You can replace the URL in "" with a local path on your machine, e.g. "c:\temp\ABRSQOL-testdata.csv"
-my_dataframe = read.csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
+my_dataframe <- read.csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
 
 # Use ABRSQOL to solve for quality of life 
-my_dataframe$QoL1 = ABRSQOL(
+my_dataframe$QoL1 <- ABRSQOL(
   # supply your dataset as a dataframe
   df=my_dataframe,
   # specify the corresponding variable name for your data set. 
@@ -51,7 +51,7 @@ write.csv(my_dataframe, 'my_data_with_qol.csv')
 # Whenever you don't specify another argument its defaul value will be used.
 # In this case assume all variables in my_dataframe are named as default,
 # except for L (residence population) and L_b (hometown population)
-my_dataframe$QoL2 = ABRSQOL(
+my_dataframe$QoL2 <- ABRSQOL(
   df=my_dataframe,
   L = 'residence_pop',
   L_b = 'home_pop',

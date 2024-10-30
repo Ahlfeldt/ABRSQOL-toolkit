@@ -10,7 +10,7 @@
 #'
 #' @docType data
 #'
-#' @usage get('ABRSQOL_testdata')
+#' @usage data(ABRSQOL_testdata)
 #'
 #' @format data.frame with colnames=c('llm_id','w','p_H','P_t','p_n','L','L_b',
 #' 'Name','coord_x','coord_y') and 141 observations
@@ -20,7 +20,8 @@
 #' @references Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel
 #' (forthcoming): Measuring quality of life under spatial frictions.
 #'
-#' @source \href{https://https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
+#' @source 
+#' \href{https://https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
 #'
 #' @examples
 #' library('ABRSQOL')

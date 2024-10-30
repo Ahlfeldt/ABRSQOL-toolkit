@@ -55,20 +55,15 @@
 #' (identified up to a constant)
 #'
 #' @examples
-#' ABRSQOL(
-#'  df=my_dataframe,
-#'  w = 'w', p_H = 'p_H', P_t = 'P_t', p_n = 'p_n', L = 'L', L_b = 'L_b',
-#'  alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
-#'  conv = 0.5, tolerance = 1e-10, maxiter = 1e4
-#' )
 #' # Example 1: load testdata, run QoL inversion with default parameters, append and view result
 #' data(ABRSQOL_testdata)
-#' ABRSQOL_testdata$QoL = ABRSQOL(df=ABRSQOL_testdata)
-#' View(ABRSQOL_testdata)
+#' my_dataframe <- ABRSQOL_testdata
+#' my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
+#' View(my_dataframe)
 #'
 #' # Example 2: load your data from csv, run inversion, save result as csv
-#' my_dataframe = read.csv("path/to/your/csv_filename.csv")
-#' my_dataframe$quality_of_life = ABRSQOL(
+#' # my_dataframe <- read.csv("path/to/your/csv_filename.csv")
+#' my_dataframe$qol2 <- ABRSQOL(
 #'   # supply your dataset as a dataframe
 #'   df=my_dataframe,
 #'   # and specify the corresponding variable name for your dataset
@@ -90,7 +85,7 @@
 #' write.csv(my_dataframe, 'qol_of_my_data.csv'
 #'
 #' # Example 3: Reference variables in your dataset by using the column index
-#' ABRSQOL(
+#' my_dataframe$qol3 <- ABRSQOL(
 #'   df=my_dataframe,
 #'   w = 1,
 #'   p_H = 3,
@@ -101,7 +96,7 @@
 #' )
 #'
 #' # Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
-#' ABRSQOL(
+#' my_dataframe$qol4 <- ABRSQOL(
 #'   df=my_dataframe,
 #'   alpha = 0.7,
 #'   beta = 0.5,
@@ -111,7 +106,7 @@
 #' )
 #'
 #' @export
-ABRSQOL = function(
+ABRSQOL <- function(
   df, # data.frame or matrix containing dataset
 
   # SPECIFY VARIABLES NAMES OR COLUMN INDEX
@@ -134,64 +129,68 @@ ABRSQOL = function(
   ) {
 
   # Extract key variables from input dataframe/matrix
-  L_b = matrix(data = as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
-  L = matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
-  w = matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
-  P_t = df[[P_t]]
-  p_H = df[[p_H]]
-  p_n = df[[p_n]]
+  L_b <- matrix(data = as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
+  L <- matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
+  w <- matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
+  P_t <- df[[P_t]]
+  p_H <- df[[p_H]]
+  p_n <- df[[p_n]]
 
 
   # if there are unequal number of rows (n_obs) among variables throw error
   if(length(unique(
     c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n))
-    )) > 1){
-    error_msg = paste("\nVariables do not have the same length:",
-                       "\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),
-                       "\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n))
+  )) > 1){
+    error_msg <- paste(
+      "\nVariables do not have the same length:",
+      "\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),
+      "\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n)
+    )
     stop(error_msg)
   }
   # else save units of observation as J
-  J = length(L_b);
+  J <- length(L_b)
 
   # if there are unequal number of dimensions throw an error
   if(length(unique(c(dim(L_b)[2],dim(L)[2],dim(w)[2]))) > 1){
-    error_msg = paste("\nVariables do not have the same dimension:",
-                       "\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2])
+    error_msg <- paste(
+      "\nVariables do not have the same dimension:",
+      "\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2]
+    )
     stop(error_msg)
   }
   # else assign theta as the number of dimensions (mostly will be 1)
-  Theta = dim(L_b)[2];
+  Theta <- dim(L_b)[2]
 
 
   ## Inversion
 
   # Adjust L_b to have same sum as L
-  L_bar = sum(L); # total number of workers in dataset
-  L_b_adjust = L_bar / apply(L_b, 2, function(x) sum(x))
-  L_b = t(t(L_b) * L_b_adjust)
+  L_bar <- sum(L); # total number of workers in dataset
+  L_b_adjust <- L_bar / apply(L_b, 2, function(x) sum(x))
+  L_b <- t(t(L_b) * L_b_adjust)
 
   # Express all variables in relative differences
   # Calculate relative employment, L_hat
-  L_hat = sweep(L, 2, L[1,], `/`)
+  L_hat <- sweep(L, 2, L[1,], `/`)
   # Calculate relative wages, w_hat
-  w_hat = sweep(w, 2, w[1,], `/`)
+  w_hat <- sweep(w, 2, w[1,], `/`)
   # Calculate relative price levels
-  P_t_hat = P_t / P_t[1]
-  p_H_hat = p_H / p_H[1]
-  p_n_hat = p_n / p_n[1]
+  P_t_hat <- P_t / P_t[1]
+  p_H_hat <- p_H / p_H[1]
+  p_n_hat <- p_n / p_n[1]
 
   # Calculate aggregate price level
-  P_hat = (P_t_hat ^(alpha * beta)) * (p_n_hat ^(alpha *(1-beta)))  * (p_H_hat ^(1-alpha));
-  P     = (P_t     ^(alpha * beta)) * (p_n     ^(alpha *(1-beta)))  * (p_H     ^(1-alpha));
+  P_hat <- (P_t_hat ^(alpha * beta)) * (p_n_hat ^(alpha *(1-beta)))  * (p_H_hat ^(1-alpha))
+  P     <- (P_t     ^(alpha * beta)) * (p_n     ^(alpha *(1-beta)))  * (p_H     ^(1-alpha))
 
   # Relative Quality of life (A_hat)
   # Guess values relative QoL
-  A_hat = matrix(1, J, Theta) # First guess: all locations have the same QoL
-  A = A_hat;
+  A_hat <- matrix(1, J, Theta) # First guess: all locations have the same QoL
+  A <- A_hat
 
-  O_total = 100000 # Starting value for loop
-  count = 1 # Counts the number of iterations
+  O_total <- 100000 # Starting value for loop
+  count <- 1 # Counts the number of iterations
 
   cat("\nBegin loop to solve for quality of life measure:\n")
   while (O_total > tolerance && count <= maxiter){
@@ -199,27 +198,27 @@ ABRSQOL = function(
     ". Value of objective function:",O_total," > ",tolerance)
 
     # (1) Calculate model-consistent aggregation shares, Psi_b
-    nom = (as.vector(A) * w  * as.vector(1/P)) ^(gamma)
-    Psi_b = ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1)
+    nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma)
+    Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1)
 
     # (2) Calculate mathcal_L
-    mathcal_L = apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1)
+    mathcal_L <- apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1)
 
     # (3) Calculate relative mathcal_L
-    mathcal_L_hat = sweep(mathcal_L, 2, mathcal_L[1,], `/`)
+    mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`)
 
     # (4) Calculate relative QoL, A_hat, according to equation (17)
-    A_hat_up = as.vector(P_hat) * (1/ w_hat) * (L_hat / mathcal_L_hat) ^(1 /gamma)
+    A_hat_up <- as.vector(P_hat) * (1/ w_hat) * (L_hat / mathcal_L_hat) ^(1 /gamma)
 
     # (5) Calculate deviations from inital guesses for QoL levels
-    O_total = sum(abs(A_hat_up-A_hat))/J
+    O_total <- sum(abs(A_hat_up-A_hat))/J
 
     # Update QoL levels for next iteration of loop
-    A_hat = conv * A_hat_up + (1-conv) * A_hat
-    A = A_hat;
+    A_hat <- conv * A_hat_up + (1-conv) * A_hat
+    A <- A_hat
 
     # Next iteration
-    count = count+1
+    count <- count+1
 
   }
 
