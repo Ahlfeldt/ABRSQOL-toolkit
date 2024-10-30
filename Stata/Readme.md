@@ -1,3 +1,5 @@
+# STATA toolkit for measuring quality of life under spatial frictions
+
 **Notes on Stata ado programme**: To install the ado file in Stata, just type 'ssc install ABRS'. In case Stata cannot connect to the internet, you may also manually copy both files (`abrsqol.ado`, `abrsqol.sthlp`) to your ado folder. The programme will be ready to use. For information on the syntax, type 'help ABRS'.
 
 ## Ready-to-use script
