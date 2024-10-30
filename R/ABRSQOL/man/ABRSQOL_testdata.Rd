@@ -27,7 +27,7 @@ are uniformly set to one.
 library('ABRSQOL')
 data(ABRSQOL_testdata)
 ABRSQOL_testdata$QoL = ABRSQOL(df=ABRSQOL_testdata)
-View(ABRSQOL_testdata)
+ABRSQOL_testdata
 }
 \references{
 Gabriel M. Ahlfeldt, Fabian Bald, Duncan Roth, Tobias Seidel

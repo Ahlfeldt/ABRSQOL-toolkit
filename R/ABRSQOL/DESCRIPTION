@@ -2,14 +2,32 @@ Package: ABRSQOL
 Type: Package
 Title: Quality-of-life solver for "Measuring quality of life under spatial frictions"
 Version: 1.0.0
-Author: Gabriel M Ahlfeldt <g.ahlfeldt@hu-berlin.de>
-Maintainer: Max von Mylius <max.mylius@hu-berlin.de>
-Authors@R: list(
-    person("Gabriel M", "Ahlfeldt", email="g.ahlfeldt@hu-berlin.de", role=c('cph', 'cre','aut'),comment="Humboldt University of Berlin"), 
-    person("Fabian", "Bald", email="Bald@europa-uni.de", role=c('aut'), comment="European University Viadrina"), 
-    person("Duncan", "Roth", email="Duncan.Roth@iab.de", role=c('aut'), comment="Institute for Employment Research"), 
-    person("Tobias", "Seidel", email="tobias.seidel@uni-due.de", role=c('aut'),comment="University of Duisburg-Essen"),
-    person("Max", "von Mylius", email="max.mylius@hu-berlin.de", role=c('trl'),comment="Humboldt University of Berlin")
+Authors@R: 
+    c(person(given="Gabriel M", 
+             family="Ahlfeldt", 
+             email="g.ahlfeldt@hu-berlin.de", 
+             role=c("cph", "aut"),
+             comment="Humboldt University of Berlin"), 
+      person(given="Fabian", 
+             family="Bald", 
+             email="Bald@europa-uni.de", 
+             role=c("aut"), 
+             comment="European University Viadrina"), 
+      person(given="Duncan", 
+             family="Roth", 
+             email="Duncan.Roth@iab.de", 
+             role=c("aut"), 
+             comment="Institute for Employment Research"), 
+      person(given="Tobias", 
+             family="Seidel", 
+             email="tobias.seidel@uni-due.de", 
+             role=c("aut"),
+             comment="University of Duisburg-Essen"),
+      person(given="Max", 
+             family="von Mylius", 
+             email="max.mylius@hu-berlin.de", 
+             role=c("trl", "cre"),
+             comment="Humboldt University of Berlin")
     )
 Description: This toolkit implements a numerical solution algorithm 
     to invert a quality of life (QoL) from observed data in various 

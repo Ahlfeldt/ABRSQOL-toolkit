@@ -95,7 +95,7 @@ as the mean or median in the distribution of QoL across locations).
 data(ABRSQOL_testdata)
 my_dataframe <- ABRSQOL_testdata
 my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
-View(my_dataframe)
+my_dataframe
 
 # Example 2: load your data from csv, run inversion, save result as csv
 # my_dataframe <- read.csv("path/to/your/csv_filename.csv")

@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 *.Rproj
-ARBSQOL.Rcheck/
+ABRSQOL.Rcheck/
+..Rcheck

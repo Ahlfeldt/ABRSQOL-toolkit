@@ -27,5 +27,5 @@
 #' library('ABRSQOL')
 #' data(ABRSQOL_testdata)
 #' ABRSQOL_testdata$QoL = ABRSQOL(df=ABRSQOL_testdata)
-#' View(ABRSQOL_testdata)
+#' ABRSQOL_testdata
 "ABRSQOL_testdata"
