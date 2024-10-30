@@ -1,4 +1,4 @@
-# ABRSQOL
+# R toolkit for measuring quality of life under spatial frictions
 
 The R version of the toolkit was developed by [Max von Mylius](https://github.com/maximylius) based on the Stata MATLAB functions.
 

@@ -1,4 +1,4 @@
-#' testdata for ABRSQOL quality of life inversion
+#' Test data for ABRSQOL quality of life inversion
 #'
 #' This is a test data set, and it is not identical to the data used in the
 #' paper. The data set includes average disposable household income as a

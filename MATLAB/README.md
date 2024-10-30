@@ -1,3 +1,5 @@
+# MATLAB toolkit for measuring quality of life under spatial frictions
+
 **Notes on Stata ado programme**: Download the file `ARBSQOL.m` or open the file and copy its contents to your MATLAB project.
 
 ## Ready-to-use script

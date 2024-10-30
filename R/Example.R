@@ -18,7 +18,7 @@ devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R')
 library(ABRSQOL)
 
 # Load the testing data. You can replace the URL in "" with a local path on your machine, e.g. "c:\temp\ABRSQOL-testdata.csv"
-my_dataframe <- read.csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
+my_dataframe = read.csv("https://raw.githubusercontent.com/Ahlfeldt/ABRSQOL-toolkit/main/DATA/ABRSQOL-testdata.csv")
 
 # Use ABRSQOL to solve for quality of life 
 my_dataframe$QoL1 = ABRSQOL(
