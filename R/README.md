@@ -1,7 +1,5 @@
 # R toolkit for measuring quality of life under spatial frictions
 
-The R version of the toolkit was developed by [Max von Mylius](https://github.com/maximylius) based on the Stata MATLAB functions.
-
 ## Installation
 To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
 If you are new to R, note it might be necessary to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
@@ -77,3 +75,6 @@ my_dataframe$QoL = ABRSQOL(
 ## Ready-to-use script
 
 If you are new to R, you may find it useful to execute the `Example.R` script saved in this folder. It will install the package, load the testing data set, generate a quality-of-life index, and save it to your working directory.  It should be straightforward to adapt the script to your data and preferred parameter values.
+
+## Acknowledgements
+The R version of the toolkit was developed by [Max von Mylius](https://github.com/maximylius) based on the Stata and MATLAB functions.
