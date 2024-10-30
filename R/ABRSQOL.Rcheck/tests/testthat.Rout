@@ -34,4 +34,4 @@ Quality of life measure generated and returned as vector.[ FAIL 0 | WARN 0 | SKI
 > 
 > proc.time()
    user  system elapsed 
-   1.04    0.37    1.56 
+   1.14    0.43    1.71 

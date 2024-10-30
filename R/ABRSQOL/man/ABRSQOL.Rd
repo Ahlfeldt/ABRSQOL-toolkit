@@ -99,26 +99,26 @@ View(my_dataframe)
 
 # Example 2: load your data from csv, run inversion, save result as csv
 # my_dataframe <- read.csv("path/to/your/csv_filename.csv")
-my_dataframe$qol2 <- ABRSQOL(
-  # supply your dataset as a dataframe
-  df=my_dataframe,
-  # and specify the corresponding variable name for your dataset
-  w = 'wage',
-  p_H = 'floor_space_price',
-  P_t = 'tradable_goods_price',
-  p_n = 'local_services_price',
-  L = 'residence_pop',
-  L_b = 'L_b',
-  # freely adjust remaining parameters
-  alpha = 0.7,
-  beta = 0.5,
-  gamma = 3,
-  xi = 5.5,
-  conv = 0.3,
-  tolerance = 1e-11,
-  maxiter = 50000
-)
-write.csv(my_dataframe, 'qol_of_my_data.csv'
+# my_dataframe$qol2 <- ABRSQOL(
+#  # supply your dataset as a dataframe
+#  df=my_dataframe,
+#  # and specify the corresponding variable name for your dataset
+#  w = 'wage',
+#  p_H = 'floor_space_price',
+#  P_t = 'tradable_goods_price',
+#  p_n = 'local_services_price',
+#  L = 'residence_pop',
+#  L_b = 'L_b',
+#  # freely adjust remaining parameters
+#  alpha = 0.7,
+#  beta = 0.5,
+#  gamma = 3,
+#  xi = 5.5,
+#  conv = 0.3,
+#  tolerance = 1e-11,
+#  maxiter = 50000
+#)
+#write.csv(my_dataframe, 'qol_of_my_data.csv'
 
 # Example 3: Reference variables in your dataset by using the column index
 my_dataframe$qol3 <- ABRSQOL(

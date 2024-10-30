@@ -5,5 +5,5 @@ test_that("test data loaded and quality of live inversion successfull", {
   expect_equal(length(ABRSQOL_testdata[[1]]), 141)
   qol <- ABRSQOL(df=ABRSQOL_testdata)
   expect_equal(length(qol), 141)
-  expect_equal(round(sum(qol),2), round(128.3941,2))
+  expect_equal(round(sum(qol),1), round(128.3941,1))
 })

@@ -14,42 +14,43 @@ library(ABRSQOL)
 ```
 
 ## Examples
+
 ### Example 1: load testdata, run QoL inversion with default parameters, store result as 'QoL' variable, view result
 ``` r
-testdata = get("ABRSQOL_testdata")
-testdata$QoL = ABRSQOL(df=testdata)
-View(testdata)
+data(ABRSQOL_testdata)
+my_dataframe <- ABRSQOL_testdata
+my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
+View(my_dataframe)
 ```
 
 ### Example 2: load your data from csv, run inversion, save result as csv
 ``` r
-my_dataframe = read.csv("path/to/your/csv_filename.csv")
-my_dataframe$quality_of_life = ABRSQOL(
-  # supply your dataset as a dataframe
-  df=my_dataframe,
-  # specify the corresponding variable name for your dataset
-  w = 'wage',
-  p_H = 'floor_space_price',
-  P_t = 'tradable_goods_price',
-  p_n = 'local_services_price',
-  L = 'residence_pop',
-  L_b = 'L_b',
-  # freely adjust remaining parameters
-  alpha = 0.7,
-  beta = 0.5,
-  gamma = 3,
-  xi = 5.5,
-  conv = 0.3,
-  tolerance = 1e-11,
-  maxiter = 50000
+my_dataframe <- read.csv("path/to/your/csv_filename.csv")
+my_dataframe$qol2 <- ABRSQOL(
+   # supply your dataset as a dataframe
+ df=my_dataframe,
+ # and specify the corresponding variable name for your dataset
+ w = 'wage',
+ p_H = 'floor_space_price',
+ P_t = 'tradable_goods_price',
+ p_n = 'local_services_price',
+ L = 'residence_pop',
+ L_b = 'L_b',
+ # freely adjust remaining parameters
+ alpha = 0.7,
+ beta = 0.5,
+ gamma = 3,
+ xi = 5.5,
+ conv = 0.3,
+ tolerance = 1e-11,
+ maxiter = 50000
 )
-# Write output to target folder (just replace the path)
-write.csv(my_dataframe, 'C:/FOLDER/qol_of_my_data.csv')
+write.csv(my_dataframe, 'qol_of_my_data.csv'
 ```
 
 ### Example 3: Reference variables in your dataset by using the column index
 ``` r
-my_dataframe$QoL = ABRSQOL(
+my_dataframe$qol3 <- ABRSQOL(
   df=my_dataframe,
   w = 1,
   p_H = 3,
@@ -62,7 +63,7 @@ my_dataframe$QoL = ABRSQOL(
 
 ### Example 4: Having named the variables in your data according to the default parameters, you can omit specifying variable names
 ``` r
-my_dataframe$QoL = ABRSQOL(
+my_dataframe$qol4 <- ABRSQOL(
   df=my_dataframe,
   alpha = 0.7,
   beta = 0.5,
