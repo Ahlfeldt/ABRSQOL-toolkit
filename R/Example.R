@@ -14,7 +14,7 @@ rm(list = ls())
 install.packages('devtools')
 
 # Install and run ABRSQOL-toolkit
-devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R')
+devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R/ABRSQOL')
 library(ABRSQOL)
 
 # Load the testing data. You can replace the URL in "" with a local path on your machine, e.g. "c:\temp\ABRSQOL-testdata.csv"

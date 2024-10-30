@@ -9,7 +9,7 @@ install.packages('devtools')
 ```
 You may then install and load it by running:
 ``` r
-devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R')
+devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R/ABRSQOL')
 library(ABRSQOL)
 ```
 
