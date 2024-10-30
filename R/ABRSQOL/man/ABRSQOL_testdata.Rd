@@ -9,7 +9,7 @@ data.frame with colnames=c('llm_id','w','p_H','P_t','p_n','L','L_b',
 'Name','coord_x','coord_y') and 141 observations
 }
 \source{
-\href{https://https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
+\href{https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
 }
 \usage{
 data(ABRSQOL_testdata)

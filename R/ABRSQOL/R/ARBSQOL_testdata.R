@@ -21,7 +21,7 @@
 #' (forthcoming): Measuring quality of life under spatial frictions.
 #'
 #' @source 
-#' \href{https://https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
+#' \href{https://github.com/Ahlfeldt/ABRSQOL-toolkit}{ABRSQOL-toolkit}
 #'
 #' @examples
 #' library('ABRSQOL')

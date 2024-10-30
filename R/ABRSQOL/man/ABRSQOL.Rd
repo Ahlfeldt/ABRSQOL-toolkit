@@ -91,7 +91,9 @@ the QoL measure to any other location or any other value (such
 as the mean or median in the distribution of QoL across locations).
 }
 \examples{
-# Example 1: load testdata, run QoL inversion with default parameters, append and view result
+# Example 1: 
+# load testdata, 
+# run QoL inversion with default parameters and append result
 data(ABRSQOL_testdata)
 my_dataframe <- ABRSQOL_testdata
 my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
@@ -131,7 +133,8 @@ my_dataframe$qol3 <- ABRSQOL(
   L_b = 5
 )
 
-# Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
+# Example 4: Having named the variables in your data according to the 
+# default parameters, you can ommit specifying variable names
 my_dataframe$qol4 <- ABRSQOL(
   df=my_dataframe,
   alpha = 0.7,

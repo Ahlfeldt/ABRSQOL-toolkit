@@ -55,7 +55,9 @@
 #' (identified up to a constant)
 #'
 #' @examples
-#' # Example 1: load testdata, run QoL inversion with default parameters, append and view result
+#' # Example 1: 
+#' # load testdata, 
+#' # run QoL inversion with default parameters and append result
 #' data(ABRSQOL_testdata)
 #' my_dataframe <- ABRSQOL_testdata
 #' my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
@@ -95,7 +97,8 @@
 #'   L_b = 5
 #' )
 #'
-#' # Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
+#' # Example 4: Having named the variables in your data according to the 
+#' # default parameters, you can ommit specifying variable names
 #' my_dataframe$qol4 <- ABRSQOL(
 #'   df=my_dataframe,
 #'   alpha = 0.7,
@@ -118,7 +121,7 @@ ABRSQOL <- function(
   L_b = 'L_b', # 7: Hometown population
 
   # DEFINE PARAMETER VALUES
-  alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing (Source: Statistisches Bundesamt, 2020)
+  alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing
   beta = 0.5, # share of alpha that is spent on tradable good
   gamma = 3, # Own calculations
   xi = 5.5, # Own calculations
@@ -129,7 +132,7 @@ ABRSQOL <- function(
   ) {
 
   # Extract key variables from input dataframe/matrix
-  L_b <- matrix(data = as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
+  L_b <- matrix(data=as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
   L <- matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
   w <- matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
   P_t <- df[[P_t]]
@@ -181,8 +184,8 @@ ABRSQOL <- function(
   p_n_hat <- p_n / p_n[1]
 
   # Calculate aggregate price level
-  P_hat <- (P_t_hat ^(alpha * beta)) * (p_n_hat ^(alpha *(1-beta)))  * (p_H_hat ^(1-alpha))
-  P     <- (P_t     ^(alpha * beta)) * (p_n     ^(alpha *(1-beta)))  * (p_H     ^(1-alpha))
+  P_hat<-(P_t_hat^(alpha * beta))*(p_n_hat^(alpha*(1-beta)))*(p_H_hat^(1-alpha))
+  P    <-(P_t    ^(alpha * beta))*(p_n    ^(alpha*(1-beta)))*(p_H   ^(1-alpha))
 
   # Relative Quality of life (A_hat)
   # Guess values relative QoL
@@ -199,16 +202,16 @@ ABRSQOL <- function(
 
     # (1) Calculate model-consistent aggregation shares, Psi_b
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma)
-    Psi_b <- ((sweep((exp(xi) - 1) * nom, 2, apply(nom, 2, function(x) sum(x)), `/`)) + 1) ^(-1)
+    Psi_b<-(sweep((exp(xi)-1)*nom,2,apply(nom,2,function(x) sum(x)),`/`)+1)^(-1)
 
     # (2) Calculate mathcal_L
-    mathcal_L <- apply(L_b *Psi_b, 2, function(x) sum(x)) + L_b *Psi_b *(exp(xi) - 1)
+    mathcal_L <- apply(L_b *Psi_b, 2 ,function(x) sum(x))+L_b*Psi_b*(exp(xi)-1)
 
     # (3) Calculate relative mathcal_L
     mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`)
 
     # (4) Calculate relative QoL, A_hat, according to equation (17)
-    A_hat_up <- as.vector(P_hat) * (1/ w_hat) * (L_hat / mathcal_L_hat) ^(1 /gamma)
+    A_hat_up <- as.vector(P_hat) * (1/w_hat) * (L_hat/mathcal_L_hat) ^(1/gamma)
 
     # (5) Calculate deviations from inital guesses for QoL levels
     O_total <- sum(abs(A_hat_up-A_hat))/J

@@ -41,9 +41,9 @@ Description: This toolkit implements a numerical solution algorithm
     the toolkit in your work, please cite the paper.
 URL: https://github.com/Ahlfeldt/ABRSQOL-toolkit#readme
 BugReports: https://github.com/Ahlfeldt/ABRSQOL-toolkit/issues
-License: MIT + file LICENSE
+License: file LICENSE
 Encoding: UTF-8
-LazyData: false
+LazyData: true
 Depends: 
     R (>= 2.10)
 RoxygenNote: 7.3.2
