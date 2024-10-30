@@ -1,15 +1,27 @@
 # R toolkit for measuring quality of life under spatial frictions
 
 ## Installation
-To install the R package of the ABRSQOL-toolkit from github, you must first install the devtools package. 
+
+Shortly (mid Nov 2024) you will be able to install the R package from CRAN by running:
+``` r
+install.packages('ABRSQOL')
+```
+
+<details>
+<summary>Alternatively, you can also install the R package directly from Github...</summary>
+
+... to do so, you must first install the devtools package. 
 If you are new to R, note it might be necessary to install [R-tools](https://cran.r-project.org/bin/windows/Rtools/) beforehand to be able to install the devtools package. 
 
 ``` r
 install.packages('devtools')
-```
-You may then install and load it by running:
-``` r
 devtools::install_github('Ahlfeldt/ABRSQOL-toolkit', subdir='R/ABRSQOL')
+```
+
+</details>
+
+After having installed the package load it by running:
+``` r
 library(ABRSQOL)
 ```
 
