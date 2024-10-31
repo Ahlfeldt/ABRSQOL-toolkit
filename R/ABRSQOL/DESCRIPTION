@@ -1,6 +1,6 @@
 Package: ABRSQOL
 Type: Package
-Title: Quality-of-life solver for "Measuring quality of life under spatial frictions"
+Title: Quality-of-Life Solver for "Measuring Quality of Life under Spatial Frictions"
 Version: 1.0.0
 Authors@R: 
     c(person(given="Gabriel M", 
