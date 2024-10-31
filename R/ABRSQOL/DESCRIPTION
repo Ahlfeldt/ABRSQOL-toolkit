@@ -30,7 +30,7 @@ Authors@R:
              comment="Humboldt University of Berlin")
     )
 Description: This toolkit implements a numerical solution algorithm 
-    to invert a quality of life (QoL) from observed data in various 
+    to invert a quality of life measure from observed data in various 
     programming languages. The QoL measure is based on Ahlfeldt, 
     Bald, Roth, Seidel (2024); Measuring quality of life under 
     spatial frictions. Unlike the traditional Rosen-Roback measure,
@@ -41,7 +41,7 @@ Description: This toolkit implements a numerical solution algorithm
     the toolkit in your work, please cite the paper.
 URL: https://github.com/Ahlfeldt/ABRSQOL-toolkit#readme
 BugReports: https://github.com/Ahlfeldt/ABRSQOL-toolkit/issues
-License: file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: 
