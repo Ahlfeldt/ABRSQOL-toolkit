@@ -57,7 +57,7 @@ my_dataframe$qol2 <- ABRSQOL(
  tolerance = 1e-11,
  maxiter = 50000
 )
-write.csv(my_dataframe, 'qol_of_my_data.csv'
+write.csv(my_dataframe, 'qol_of_my_data.csv')
 ```
 
 ### Example 3: Reference variables in your dataset by using the column index
