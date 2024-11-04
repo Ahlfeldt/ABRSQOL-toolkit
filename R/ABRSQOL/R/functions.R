@@ -21,7 +21,7 @@
 #' the QoL measure to any other location or any other value (such
 #' as the mean or median in the distribution of QoL across locations).
 #'
-#' @param df input data containing variables refenced by 
+#' @param df input data containing variables refenced by
 #' following arguments: data.frame or matrix
 #' @param w wage index variable name or column index:
 #' character or integer (or list), default='w'
@@ -49,14 +49,14 @@
 #' Smaller values imply greater precision and longer convergence):
 #' double, default=1e-10
 #' @param maxiter Maximum number of iterations after which the algorithm
-#' is forced to stop: integer, default=1e4
+#' is forced to stop: integer, default=10000
 #'
 #' @return inverted quality of life measure as Numeric vector
 #' (identified up to a constant)
 #'
 #' @examples
-#' # Example 1: 
-#' # load testdata, 
+#' # Example 1:
+#' # load testdata,
 #' # run QoL inversion with default parameters and append result
 #' data(ABRSQOL_testdata)
 #' my_dataframe <- ABRSQOL_testdata
@@ -97,7 +97,7 @@
 #'   L_b = 5
 #' )
 #'
-#' # Example 4: Having named the variables in your data according to the 
+#' # Example 4: Having named the variables in your data according to the
 #' # default parameters, you can ommit specifying variable names
 #' my_dataframe$qol4 <- ABRSQOL(
 #'   df=my_dataframe,
@@ -113,12 +113,12 @@ ABRSQOL <- function(
   df, # data.frame or matrix containing dataset
 
   # SPECIFY VARIABLES NAMES OR COLUMN INDEX
-  w = 'w', # 2: Wage index
-  p_H = 'p_H', # 3: Floor space price index
-  P_t = 'P_t', # 4: Tradable goods price index
-  p_n = 'p_n', # 5: Local services price index
-  L = 'L', # 6: Residence population
-  L_b = 'L_b', # 7: Hometown population
+  w = "w", # 2: Wage index
+  p_H = "p_H", # 3: Floor space price index
+  P_t = "P_t", # 4: Tradable goods price index
+  p_n = "p_n", # 5: Local services price index
+  L = "L", # 6: Residence population
+  L_b = "L_b", # 7: Hometown population
 
   # DEFINE PARAMETER VALUES
   alpha = 0.7, #income share on non-housing; 1-alpha expenditure on housing
@@ -129,12 +129,17 @@ ABRSQOL <- function(
   conv = 0.5, # convergence parameter
   tolerance = 1e-10, # Tolerance level for loop
   maxiter = 10000
-  ) {
+) {
+
+  if (maxiter < 1) {
+    stop("Maximum iterations must at least 1.
+    Larger values like default of 10000 are recommended.")
+  }
 
   # Extract key variables from input dataframe/matrix
   L_b <- matrix(data=as.vector(unlist(df[L_b])), ncol=length(L_b), byrow=FALSE)
-  L <- matrix(data = as.vector(unlist(df[L])), ncol=length(L), byrow=FALSE)
-  w <- matrix(data = as.vector(unlist(df[w])), ncol=length(w), byrow=FALSE)
+  L <- matrix(data = as.vector(unlist(df[L])), ncol = length(L), byrow = FALSE)
+  w <- matrix(data = as.vector(unlist(df[w])), ncol = length(w), byrow = FALSE)
   P_t <- df[[P_t]]
   p_H <- df[[p_H]]
   p_n <- df[[p_n]]
@@ -142,12 +147,12 @@ ABRSQOL <- function(
 
   # if there are unequal number of rows (n_obs) among variables throw error
   if(length(unique(
-    c(length(L_b),length(L),length(w),length(P_t),length(p_H),length(p_n))
+    c(length(L_b), length(L), length(w), length(P_t) ,length(p_H), length(p_n))
   )) > 1){
     error_msg <- paste(
       "\nVariables do not have the same length:",
-      "\nL_b: ",length(L_b), "\nL: ",length(L),"\nw: ",length(w),
-      "\nP_t: ",length(P_t),"\np_H: ",length(p_H),"\np_n: ",length(p_n)
+      "\nL_b: ", length(L_b), "\nL: ", length(L), "\nw: ", length(w),
+      "\nP_t: ", length(P_t), "\np_H: ", length(p_H), "\np_n: ", length(p_n)
     )
     stop(error_msg)
   }
@@ -158,7 +163,7 @@ ABRSQOL <- function(
   if(length(unique(c(dim(L_b)[2],dim(L)[2],dim(w)[2]))) > 1){
     error_msg <- paste(
       "\nVariables do not have the same dimension:",
-      "\nL_b: ",dim(L_b)[2], "\nL: ",dim(L)[2],"\nw:", dim(w)[2]
+      "\nL_b: ", dim(L_b)[2], "\nL: ", dim(L)[2], "\nw:", dim(w)[2]
     )
     stop(error_msg)
   }
@@ -169,7 +174,7 @@ ABRSQOL <- function(
   ## Inversion
 
   # Adjust L_b to have same sum as L
-  L_bar <- sum(L); # total number of workers in dataset
+  L_bar <- sum(L) # total number of workers in dataset
   L_b_adjust <- L_bar / apply(L_b, 2, function(x) sum(x))
   L_b <- t(t(L_b) * L_b_adjust)
 
@@ -192,40 +197,54 @@ ABRSQOL <- function(
   A_hat <- matrix(1, J, Theta) # First guess: all locations have the same QoL
   A <- A_hat
 
-  O_total <- 100000 # Starting value for loop
-  count <- 1 # Counts the number of iterations
+  O_total <- Inf # Starting value for loop
+  iter_count <- 1 # Counts the number of iterations
 
-  cat("\nBegin loop to solve for quality of life measure:\n")
-  while (O_total > tolerance && count <= maxiter){
-    cat("\rIteration:",count,"/",maxiter,
-    ". Value of objective function:",O_total," > ",tolerance)
+  while (O_total > tolerance && iter_count <= maxiter){
 
     # (1) Calculate model-consistent aggregation shares, Psi_b
     nom <- (as.vector(A) * w  * as.vector(1/P)) ^(gamma)
     Psi_b<-(sweep((exp(xi)-1)*nom,2,apply(nom,2,function(x) sum(x)),`/`)+1)^(-1)
 
     # (2) Calculate mathcal_L
-    mathcal_L <- apply(L_b *Psi_b, 2 ,function(x) sum(x))+L_b*Psi_b*(exp(xi)-1)
+    mathcal_L <- apply(L_b * Psi_b, 2, function(x) sum(x))+L_b*Psi_b*(exp(xi)-1)
 
     # (3) Calculate relative mathcal_L
-    mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1,], `/`)
+    mathcal_L_hat <- sweep(mathcal_L, 2, mathcal_L[1, ], `/`)
 
     # (4) Calculate relative QoL, A_hat, according to equation (17)
-    A_hat_up <- as.vector(P_hat) * (1/w_hat) * (L_hat/mathcal_L_hat) ^(1/gamma)
+    A_hat_up <- as.vector(P_hat) * (1/w_hat) * (L_hat/mathcal_L_hat) ^ (1/gamma)
 
     # (5) Calculate deviations from inital guesses for QoL levels
-    O_total <- sum(abs(A_hat_up-A_hat))/J
+    O_total <- sum(abs(A_hat_up - A_hat)) / J
 
     # Update QoL levels for next iteration of loop
-    A_hat <- conv * A_hat_up + (1-conv) * A_hat
+    A_hat <- conv * A_hat_up + (1 - conv) * A_hat
     A <- A_hat
 
-    # Next iteration
-    count <- count+1
+    message(
+      "\rSolving for QoL: ",
+      "Iteration: ", iter_count, "/",maxiter,
+      ". Objective function: ", O_total, " > ", tolerance,
+      appendLF = FALSE
+    )
 
+    # Next iteration
+    iter_count <- iter_count + 1
   }
 
-  cat("\nQuality of life measure generated and returned as vector.")
+  if (O_total > tolerance) {
+    warning(
+      "WARNING: Exceeded maximum number of iterations: ", iter_count, "/",
+      maxiter, ". Objective function: ", O_total, " >= ", tolerance
+    )
+  } else {
+    message(
+      "\rSUCCESS. Solved for QoL at iteration: ", iter_count, "/", maxiter,
+      ". Objective function: ", O_total, " < ", tolerance
+    )
+  }
+
   return(as.vector(A))
 
 }
