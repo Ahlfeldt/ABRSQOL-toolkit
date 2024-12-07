@@ -2,7 +2,7 @@
 % Please edit documentation in R/functions.R
 \name{ABRSQOL}
 \alias{ABRSQOL}
-\title{ABRSQOL numerical solvers for quality-of-life measures}
+\title{ABRSQOL numerical solution algorithm to invert a quality of life measure}
 \usage{
 ABRSQOL(
   df,
@@ -22,7 +22,8 @@ ABRSQOL(
 )
 }
 \arguments{
-\item{df}{input data: data.frame or matrix}
+\item{df}{input data containing variables refenced by 
+following arguments: data.frame or matrix}
 
 \item{w}{wage index variable name or column index:
 character or integer (or list), default='w'}
@@ -48,7 +49,7 @@ double, default=0.7}
 \item{beta}{Share of tradable goods in non-housing consumption:
 double, default=0.5}
 
-\item{gamma}{Idiosyncratic taste dispersion (inverse labour 
+\item{gamma}{Idiosyncratic taste dispersion (inverse labour
 supply elasticity):
 double, default=3}
 
@@ -62,10 +63,11 @@ Smaller values imply greater precision and longer convergence):
 double, default=1e-10}
 
 \item{maxiter}{Maximum number of iterations after which the algorithm
-is forced to stop: integer, default=10}
+is forced to stop: integer, default=1e4}
 }
 \value{
-Numeric vector of QoL measure (identified up to a constant)
+inverted quality of life measure as Numeric vector
+(identified up to a constant)
 }
 \description{
 This toolkit implements a numerical solution algorithm
@@ -85,49 +87,43 @@ Notice that quality of life is identified up to a constant.
 Therefore, the inverted QoL measures measure has a relative
 interpretation only. We normalize the QoL relative to the first
 observation in the data set. It is straightforward to rescale
- the QoL measure to any other location or any other value (such
+the QoL measure to any other location or any other value (such
 as the mean or median in the distribution of QoL across locations).
 }
 \examples{
-ABRSQOL(
- df=my_dataframe,
- QoL_varname='A',
- w = 'w', p_H = 'p_H', P_t = 'P_t', p_n = 'p_n', L = 'L', L_b = 'L_b',
- alpha = 0.7, beta = 0.5, gamma = 3, xi = 5.5,
- conv = 0.5, tolerance = 1e-10, maxiter = 1e4
-)
-# Example 1: load testdata, run QoL inversion with default parameters, store result as 'QoL' variable, view result 
-testdata = get("ABRSQOL_testdata")
-testdata$QoL = ABRSQOL(df=testdata)
-View(testdata)
+# Example 1: 
+# load testdata, 
+# run QoL inversion with default parameters and append result
+data(ABRSQOL_testdata)
+my_dataframe <- ABRSQOL_testdata
+my_dataframe$qol1 <- ABRSQOL(df=ABRSQOL_testdata)
+my_dataframe
 
 # Example 2: load your data from csv, run inversion, save result as csv
-my_dataframe = read.csv("path/to/your/csv_filename.csv")
-my_dataframe$quality_of_life = ABRSQOL(
-  # supply your dataset as a dataframe
-  df=my_dataframe,
-  # specify the name for the output variable
-  QoL_varname='qol_indicator',
-  # and specify the corresponding variable name for your dataset
-  w = 'wage',
-  p_H = 'floor_space_price',
-  P_t = 'tradable_goods_price',
-  p_n = 'local_services_price',
-  L = 'residence_pop',
-  L_b = 'L_b',
-  # freely adjust remaining parameters
-  alpha = 0.7,
-  beta = 0.5,
-  gamma = 3,
-  xi = 5.5,
-  conv = 0.3,
-  tolerance = 1e-11,
-  maxiter = 50000
-)
-write.csv(my_dataframe, 'qol_of_my_data.csv'
+# my_dataframe <- read.csv("path/to/your/csv_filename.csv")
+# my_dataframe$qol2 <- ABRSQOL(
+#  # supply your dataset as a dataframe
+#  df=my_dataframe,
+#  # and specify the corresponding variable name for your dataset
+#  w = 'wage',
+#  p_H = 'floor_space_price',
+#  P_t = 'tradable_goods_price',
+#  p_n = 'local_services_price',
+#  L = 'residence_pop',
+#  L_b = 'L_b',
+#  # freely adjust remaining parameters
+#  alpha = 0.7,
+#  beta = 0.5,
+#  gamma = 3,
+#  xi = 5.5,
+#  conv = 0.3,
+#  tolerance = 1e-11,
+#  maxiter = 50000
+#)
+#write.csv(my_dataframe, 'qol_of_my_data.csv'
 
 # Example 3: Reference variables in your dataset by using the column index
-ABRSQOL(
+my_dataframe$qol3 <- ABRSQOL(
   df=my_dataframe,
   w = 1,
   p_H = 3,
@@ -137,8 +133,9 @@ ABRSQOL(
   L_b = 5
 )
 
-# Example 4: Having named the variables in your data according to the default parameters, you can ommit specifying variable names
-ABRSQOL(
+# Example 4: Having named the variables in your data according to the 
+# default parameters, you can ommit specifying variable names
+my_dataframe$qol4 <- ABRSQOL(
   df=my_dataframe,
   alpha = 0.7,
   beta = 0.5,
